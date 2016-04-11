@@ -1,5 +1,12 @@
 local t = Def.ActorFrame{};
 
+--Header
+t[#t+1] = Def.ActorFrame {
+	LoadActor( "../_header" )..{
+		--InitCommand=cmd(x,SCREEN_RIGHT-53;y,SCREEN_TOP+61;);
+	}
+};
+
 --Player Indicators
 --P1
 if GAMESTATE:IsPlayerEnabled(PLAYER_1) then
