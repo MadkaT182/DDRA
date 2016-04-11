@@ -1,6 +1,12 @@
 local t = Def.ActorFrame {};
 t[#t+1] = LoadActor( THEME:GetPathB("_Arcade","decorations") );
 
+--ScoreBG
+t[#t+1] = LoadActor("../../Graphics/ScreenGameplay ScoreFrame")..{
+	OnCommand=cmd(y,SCREEN_BOTTOM-46;draworder,1);
+	OffCommand=cmd();
+};
+
 --Title
 t[#t+1] = LoadActor("title")..{
 	OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+23;draworder,1);
