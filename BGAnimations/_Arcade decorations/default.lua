@@ -7,6 +7,15 @@ local t = Def.ActorFrame {};
 		};
 	};
 
+--Free Play
+if GAMESTATE:GetCoinMode() == "CoinMode_Free" or GAMESTATE:IsEventMode() then
+	t[#t+1] = Def.ActorFrame {
+		LoadActor( "free" )..{
+			OnCommand=cmd(x,SCREEN_RIGHT-29;y,SCREEN_TOP+158);
+		};
+	};
+end
+
 --Joint Premium
 if GAMESTATE:GetPremium() == "Premium_2PlayersFor1Credit" then
 
