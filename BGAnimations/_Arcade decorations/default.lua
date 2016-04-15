@@ -1,9 +1,16 @@
 local t = Def.ActorFrame {};
 
+--Cellphone
+	t[#t+1] = Def.ActorFrame {
+		LoadActor( "cellphone" )..{
+			OnCommand=cmd(x,SCREEN_RIGHT-29;y,SCREEN_TOP+70);
+		};
+	};
+
 --Paseli
 	t[#t+1] = Def.ActorFrame {
 		LoadActor( "paseli" )..{
-			OnCommand=cmd(x,SCREEN_RIGHT-29;y,SCREEN_TOP+114);
+			OnCommand=cmd(x,SCREEN_RIGHT-29;y,SCREEN_TOP+110);
 		};
 	};
 
@@ -35,6 +42,20 @@ if GAMESTATE:GetPremium() == "Premium_2PlayersFor1Credit" or GAMESTATE:GetPremiu
 		};
 	};
 end
+
+--Ecomode
+	t[#t+1] = Def.ActorFrame {
+		LoadActor( "ecomode" )..{
+			OnCommand=cmd(x,SCREEN_RIGHT-72;y,SCREEN_BOTTOM-54);
+		};
+	};
+
+--Passtr
+	t[#t+1] = Def.ActorFrame {
+		LoadActor( "passtr" )..{
+			OnCommand=cmd(x,SCREEN_RIGHT-73;y,SCREEN_BOTTOM-27);
+		};
+	};
 
 --Frame BG
 	t[#t+1] = Def.ActorFrame {

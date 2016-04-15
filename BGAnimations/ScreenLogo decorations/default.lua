@@ -7,6 +7,13 @@ t[#t+1] = Def.ActorFrame {
 	}
 };
 
+--Copyright
+t[#t+1] = Def.ActorFrame {
+	LoadActor( "copy" )..{
+		InitCommand=cmd(x,SCREEN_CENTER_X-5;y,SCREEN_CENTER_Y+115;);
+	}
+};
+
 --Arcade decorations
 t[#t+1] = LoadActor( THEME:GetPathB("_Arcade","decorations") );
 
