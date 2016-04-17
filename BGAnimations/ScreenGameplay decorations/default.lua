@@ -1,14 +1,17 @@
-local t = Def.ActorFrame{};
+local t = Def.ActorFrame{}
 
 t[#t+1] = StandardDecorationFromFile("SongInformation","SongInformation")
 
-t[#t+1] = LoadActor( THEME:GetPathB("","optionicon_P1") ) .. {
-	InitCommand=cmd(player,PLAYER_1;x,SCREEN_LEFT+108;y,SCREEN_CENTER_Y+165;draworder,1);
-};
+for player in ivalues(GAMESTATE:GetHumanPlayers()) do
 
-t[#t+1] = LoadActor( THEME:GetPathB("","optionicon_P2") ) .. {
-	InitCommand=cmd(player,PLAYER_2;x,SCREEN_LEFT+286;y,SCREEN_CENTER_Y+165;draworder,1);
-};
+	t[#t+1] = LoadActor( "OptionIcons/OptionIcons.lua", player )..{
+		InitCommand=function(self)
+			self:x(player == PLAYER_1 and 108 or 286)
+				:y(_screen.cy+165)
+				:draworder(1)
+		end
+	}
+end
 
 t[#t+1] = StandardDecorationFromFile("ScoreFrame","ScoreFrame")
 
