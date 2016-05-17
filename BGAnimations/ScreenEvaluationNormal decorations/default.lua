@@ -2,6 +2,23 @@ local t = Def.ActorFrame{};
 
 t[#t+1] = LoadActor( THEME:GetPathB("ScreenEvaluation","decorations") );
 
+--Screen Title
+t[#t+1] = LoadActor("_pre_title")..{
+	OnCommand=cmd(x,SCREEN_CENTER_X-66;y,SCREEN_TOP+19);
+	OffCommand=cmd();
+};
+
+t[#t+1] = LoadActor("stagen")..{
+	OnCommand=cmd(x,SCREEN_CENTER_X+77;y,SCREEN_TOP+19);
+	OffCommand=cmd();
+};
+
+--Song Info BG
+t[#t+1] = LoadActor("_songinfobg")..{
+	OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y-39);
+	OffCommand=cmd();
+};
+
 --Jacket
 t[#t+1] = Def.ActorFrame {
 	InitCommand=cmd(x,SCREEN_CENTER_X+1;y,SCREEN_TOP+109;draworder,1);
@@ -92,5 +109,107 @@ if not GAMESTATE:IsCourseMode() then
 		end;
 	};
 end;
+
+--Grade
+t[#t+1] = LoadActor("grade")..{
+	InitCommand=cmd(diffusealpha,1;draworder,11;addy,-15-10-40-15);
+	OffCommand=cmd(sleep,0.2;linear,0.2;diffusealpha,0);
+};
+
+--Style text
+t[#t+1] = LoadFont("_itc avant garde std bk 20px")..{
+	InitCommand=cmd(x,SCREEN_CENTER_X-126;y,SCREEN_CENTER_Y-198;visible,GAMESTATE:IsHumanPlayer(PLAYER_1)diffusealpha,1;shadowlength,1);
+	OffCommand=cmd(linear,0.25;diffusealpha,0);
+	OnCommand=function(self)
+	local style = GAMESTATE:GetCurrentStyle();
+		if style:GetStyleType() == "StyleType_OnePlayerTwoSides" then
+			self:settext("DOUBLE");
+			self:diffuse(color("#f700d7"));
+		elseif style:GetStyleType() == "StyleType_OnePlayerOneSide" then
+			self:settext("SINGLE");
+			self:diffuse(color("#01b4ff"));
+		elseif style:GetStyleType() == "StyleType_TwoPlayersTwoSides" then
+			self:settext("VERSUS");
+			self:diffuse(color("#f78c03"));
+		end;
+	end;
+};
+
+t[#t+1] = LoadFont("_itc avant garde std bk 20px")..{
+	InitCommand=cmd(x,SCREEN_CENTER_X+126;y,SCREEN_CENTER_Y-198;visible,GAMESTATE:IsHumanPlayer(PLAYER_2)diffusealpha,1;shadowlength,1);
+	OffCommand=cmd(linear,0.25;diffusealpha,0);
+	OnCommand=function(self)
+	local style = GAMESTATE:GetCurrentStyle();
+		if style:GetStyleType() == "StyleType_OnePlayerTwoSides" then
+			self:settext("DOUBLE");
+			self:diffuse(color("#f700d7"));
+		elseif style:GetStyleType() == "StyleType_OnePlayerOneSide" then
+			self:settext("SINGLE");
+			self:diffuse(color("#01b4ff"));
+		elseif style:GetStyleType() == "StyleType_TwoPlayersTwoSides" then
+			self:settext("VERSUS");
+			self:diffuse(color("#f78c03"));
+		end;
+	end;
+};
+
+--Player scores
+t[#t+1] = Def.RollingNumbers {
+	File = THEME:GetPathF("ScreenEvaluation", "ScoreNumber");
+	InitCommand=cmd(x,SCREEN_CENTER_X-310+23;y,SCREEN_CENTER_Y-47.5;zoomx,1;zoomy,0.95;player,PLAYER_1;playcommand,"Set");
+	SetCommand = function(self)
+		local score = STATSMAN:GetCurStageStats():GetPlayerStageStats(PLAYER_1):GetScore();
+		self:Load("RollingNumbersEvaluation");
+		self:targetnumber(score);
+	end;
+	OffCommand=cmd(sleep,0.067;zoom,0);
+};
+
+t[#t+1] = Def.RollingNumbers {
+	File = THEME:GetPathF("ScreenEvaluation", "ScoreNumber");
+	InitCommand=cmd(x,SCREEN_CENTER_X+310+75;y,SCREEN_CENTER_Y-47.5;zoomx,1;zoomy,0.95;player,PLAYER_2;playcommand,"Set");
+	SetCommand = function(self)
+		local score = STATSMAN:GetCurStageStats():GetPlayerStageStats(PLAYER_2):GetScore();
+		self:Load("RollingNumbersEvaluation");
+		self:targetnumber(score);
+	end;
+	OffCommand=cmd(sleep,0.067;zoom,0);
+};
+
+--P1 Decorations
+
+if GAMESTATE:IsPlayerEnabled(PLAYER_1) then
+	t[#t+1] = LoadActor("_score")..{
+		OnCommand=cmd(x,SCREEN_CENTER_X-293;y,SCREEN_CENTER_Y-64);
+		OffCommand=cmd();
+	};
+
+	t[#t+1] = LoadActor("scoreframe")..{
+		OnCommand=cmd(x,SCREEN_CENTER_X-165;y,SCREEN_CENTER_Y+86);
+		OffCommand=cmd();
+	};
+end
+
+--P2 Decorations
+if GAMESTATE:IsPlayerEnabled(PLAYER_2) then
+	--Score Label
+	t[#t+1] = LoadActor("_score")..{
+		OnCommand=cmd(x,SCREEN_CENTER_X+136;y,SCREEN_CENTER_Y-64);
+		OffCommand=cmd();
+	};
+
+	t[#t+1] = LoadActor("scoreframe")..{
+		OnCommand=cmd(x,SCREEN_CENTER_X+165;y,SCREEN_CENTER_Y+86);
+		OffCommand=cmd();
+	};
+end
+
+--Extra siren
+t[#t+1] = Def.ActorFrame {
+	Condition=GAMESTATE:HasEarnedExtraStage();
+	LoadActor( "extra" )..{
+		OnCommand=cmd(sleep,5;play);
+	};
+}
 
 return t
