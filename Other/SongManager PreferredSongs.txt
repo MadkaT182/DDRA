@@ -1,0 +1,32 @@
+--- DDR A
+DDR A/*
+--- DanceDanceRevolution(2014)
+DanceDanceRevolution(2014)/*
+--- DanceDanceRevolution(2013)
+DanceDanceRevolution(2013)/*
+--- DDR X3 VS 2ndMIX
+DDR X3 VS 2ndMIX/*
+--- DDR X2
+DDR X2/*
+--- DDR X
+DDR X/*
+--- DDR SuperNOVA2
+DDR SuperNOVA2/*
+--- DDR SuperNOVA
+DDR SuperNOVA/*
+--- DDR EXTREME
+DDR EXTREME/*
+--- DDRMAX2
+DDRMAX2/*
+--- DDRMAX
+DDRMAX/*
+--- DDR 5th MIX
+DDR 5th MIX/*
+--- DDR 4th MIX
+DDR 4th MIX/*
+--- DDR 3rd MIX
+DDR 3rd MIX/*
+--- DDR 2nd MIX
+DDR 2nd MIX/*
+--- DDR 1st
+DDR 1st/*
