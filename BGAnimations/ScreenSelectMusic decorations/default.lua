@@ -21,6 +21,12 @@ t[#t+1] = Def.ActorFrame {
 };
 
 t[#t+1] = Def.ActorFrame {
+	LoadActor( "titletext" )..{
+		InitCommand=cmd(x,SCREEN_LEFT+59;y,SCREEN_TOP+25);
+	}
+};
+
+t[#t+1] = Def.ActorFrame {
 	LoadActor( "sidebg" )..{
 		InitCommand=cmd(x,SCREEN_LEFT+124;y,SCREEN_BOTTOM-215;rotationy,180);
 	}
@@ -32,8 +38,37 @@ t[#t+1] = Def.ActorFrame {
 	}
 };
 
---RadarBG P1
+--Decorations P1
 if GAMESTATE:IsPlayerEnabled(PLAYER_1) and GAMESTATE:GetPlayMode() ~= 'PlayMode_Oni' then
+
+	--Difficulty List
+	t[#t+1] = Def.ActorFrame {
+		LoadActor( "diffTitle" )..{
+			InitCommand=cmd(x,SCREEN_LEFT+104;y,SCREEN_CENTER_Y-148);
+		}
+	};
+
+	t[#t+1] = Def.ActorFrame {
+		LoadActor( "diffLabel" )..{
+			InitCommand=cmd(x,SCREEN_LEFT+99;y,SCREEN_CENTER_Y-157);
+		}
+	};
+
+	t[#t+1] = Def.ActorFrame {
+		LoadActor( "tapU" )..{
+			InitCommand=cmd(x,SCREEN_LEFT+101;y,SCREEN_CENTER_Y-158;queuecommand,"Animate");
+			AnimateCommand=cmd(linear,.284;addy,4;linear,.284;addy,-4;sleep,1.01;queuecommand,"Animate");
+		}
+	};
+
+	t[#t+1] = Def.ActorFrame {
+		LoadActor( "tapD" )..{
+			InitCommand=cmd(x,SCREEN_LEFT+130;y,SCREEN_CENTER_Y-158;queuecommand,"Animate");
+			AnimateCommand=cmd(sleep,1.01;linear,.284;addy,4;linear,.284;addy,-4;queuecommand,"Animate");
+		}
+	};
+
+	--RadarBG
 	t[#t+1] = Def.ActorFrame {
 		LoadActor("radarbg")..{
 			OnCommand=cmd(x,SCREEN_LEFT+81;y,SCREEN_CENTER_Y+36);
@@ -42,8 +77,37 @@ if GAMESTATE:IsPlayerEnabled(PLAYER_1) and GAMESTATE:GetPlayMode() ~= 'PlayMode_
 	};
 end
 
---RadarBG P2
+--Decorations P2
 if GAMESTATE:IsPlayerEnabled(PLAYER_2) and GAMESTATE:GetPlayMode() ~= 'PlayMode_Oni' then
+
+	--Difficulty List
+	t[#t+1] = Def.ActorFrame {
+		LoadActor( "diffTitle" )..{
+			InitCommand=cmd(x,SCREEN_RIGHT-104;y,SCREEN_CENTER_Y-148);
+		}
+	};
+
+	t[#t+1] = Def.ActorFrame {
+		LoadActor( "diffLabel" )..{
+			InitCommand=cmd(x,SCREEN_RIGHT-99;y,SCREEN_CENTER_Y-157);
+		}
+	};
+
+	t[#t+1] = Def.ActorFrame {
+		LoadActor( "tapU" )..{
+			InitCommand=cmd(x,SCREEN_RIGHT-101;y,SCREEN_CENTER_Y-158;queuecommand,"Animate");
+			AnimateCommand=cmd(linear,.284;addy,4;linear,.284;addy,-4;sleep,1.01;queuecommand,"Animate");
+		}
+	};
+
+	t[#t+1] = Def.ActorFrame {
+		LoadActor( "tapD" )..{
+			InitCommand=cmd(x,SCREEN_RIGHT-72;y,SCREEN_CENTER_Y-158;queuecommand,"Animate");
+			AnimateCommand=cmd(sleep,1.01;linear,.284;addy,4;linear,.284;addy,-4;queuecommand,"Animate");
+		}
+	};
+
+	--RadarBG
 	t[#t+1] = Def.ActorFrame {
 		LoadActor("radarbg")..{
 			OnCommand=cmd(x,SCREEN_RIGHT-81;y,SCREEN_CENTER_Y+36);
