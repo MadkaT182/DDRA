@@ -176,6 +176,52 @@ t[#t+1] = Def.RollingNumbers {
 	OffCommand=cmd(sleep,0.067;zoom,0);
 };
 
+--New record definition
+if (STATSMAN:GetCurStageStats():GetPlayerStageStats(PLAYER_1):GetPersonalHighScoreIndex() == 0) then
+	NewRec1 = 1
+end
+
+if (STATSMAN:GetCurStageStats():GetPlayerStageStats(PLAYER_2):GetPersonalHighScoreIndex() == 0) then
+	NewRec2 = 1
+end
+
+if (STATSMAN:GetCurStageStats():GetPlayerStageStats(PLAYER_1):GetMachineHighScoreIndex() == 0) then
+	NewRec1 = 1
+end
+
+if (STATSMAN:GetCurStageStats():GetPlayerStageStats(PLAYER_2):GetMachineHighScoreIndex() == 0) then
+	NewRec2 = 1
+end
+
+--New record Sounds and Graphic
+if ((NewRec1 == 1) and (GAMESTATE:IsHumanPlayer(PLAYER_1))) then
+
+t[#t+1] = Def.ActorFrame {
+
+	LoadActor( "_new_record" )..{
+		OnCommand=cmd(x,SCREEN_CENTER_X-193;y,SCREEN_CENTER_Y-65;diffusealpha,0;zoom,1;draworder,1;sleep,2.416;linear,0.15;diffusealpha,1;zoom,1.15;sleep,0.5;linear,0.15;diffusealpha,1;zoom,1);
+		OffCommand=cmd(linear,0.3;zoomy,0);
+	};
+	LoadActor( "RecSound" )..{
+		OnCommand=cmd(play);
+	};
+}
+end
+
+if ((NewRec2 == 1) and (GAMESTATE:IsHumanPlayer(PLAYER_2))) then
+
+t[#t+1] = Def.ActorFrame {
+
+	LoadActor( "_new_record" )..{
+		OnCommand=cmd(x,SCREEN_CENTER_X+239;y,SCREEN_CENTER_Y-65;diffusealpha,0;zoom,1;draworder,1;sleep,2.416;linear,0.15;diffusealpha,1;zoom,1.15;sleep,0.5;linear,0.15;diffusealpha,1;zoom,1);
+		OffCommand=cmd(linear,0.3;zoomy,0);
+	};
+		LoadActor( "RecSound" )..{
+		OnCommand=cmd(play);
+	};
+}
+end
+
 --P1 Decorations
 
 if GAMESTATE:IsPlayerEnabled(PLAYER_1) then
@@ -188,6 +234,11 @@ if GAMESTATE:IsPlayerEnabled(PLAYER_1) then
 		OnCommand=cmd(x,SCREEN_CENTER_X-165;y,SCREEN_CENTER_Y+86);
 		OffCommand=cmd();
 	};
+
+--Statsp1
+t[#t+1] = LoadActor("statsP1")..{
+	OnCommand=cmd(x,SCREEN_CENTER_X-100;y,SCREEN_CENTER_Y)
+};
 end
 
 --P2 Decorations
@@ -201,6 +252,11 @@ if GAMESTATE:IsPlayerEnabled(PLAYER_2) then
 	t[#t+1] = LoadActor("scoreframe")..{
 		OnCommand=cmd(x,SCREEN_CENTER_X+165;y,SCREEN_CENTER_Y+86);
 		OffCommand=cmd();
+	};
+
+	--Statsp2
+	t[#t+1] = LoadActor("statsP2")..{
+		OnCommand=cmd(x,SCREEN_CENTER_X+250;y,SCREEN_CENTER_Y)
 	};
 end
 
