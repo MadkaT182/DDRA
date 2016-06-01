@@ -156,9 +156,11 @@ t[#t+1] = LoadFont("_itc avant garde std bk 20px")..{
 --Player scores
 t[#t+1] = Def.RollingNumbers {
 	File = THEME:GetPathF("ScreenEvaluation", "ScoreNumber");
-	InitCommand=cmd(x,SCREEN_CENTER_X-310+23;y,SCREEN_CENTER_Y-47.5;zoomx,1;zoomy,0.95;player,PLAYER_1;playcommand,"Set");
+	InitCommand=cmd(x,SCREEN_CENTER_X-203;y,SCREEN_CENTER_Y-42;zoomx,1;zoomy,0.95;player,PLAYER_1;playcommand,"Set");
 	SetCommand = function(self)
 		local score = STATSMAN:GetCurStageStats():GetPlayerStageStats(PLAYER_1):GetScore();
+		self:diffuse(color("#000000"));
+		self:strokecolor(color("#FFFFFF"));
 		self:Load("RollingNumbersEvaluation");
 		self:targetnumber(score);
 	end;
@@ -167,9 +169,10 @@ t[#t+1] = Def.RollingNumbers {
 
 t[#t+1] = Def.RollingNumbers {
 	File = THEME:GetPathF("ScreenEvaluation", "ScoreNumber");
-	InitCommand=cmd(x,SCREEN_CENTER_X+310+75;y,SCREEN_CENTER_Y-47.5;zoomx,1;zoomy,0.95;player,PLAYER_2;playcommand,"Set");
+	InitCommand=cmd(x,SCREEN_CENTER_X+203;y,SCREEN_CENTER_Y-42;zoomx,1;zoomy,0.95;player,PLAYER_2;playcommand,"Set");
 	SetCommand = function(self)
 		local score = STATSMAN:GetCurStageStats():GetPlayerStageStats(PLAYER_2):GetScore();
+		self:diffuse(color("#000000"));
 		self:Load("RollingNumbersEvaluation");
 		self:targetnumber(score);
 	end;
