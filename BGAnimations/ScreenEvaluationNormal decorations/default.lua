@@ -263,12 +263,31 @@ if GAMESTATE:IsPlayerEnabled(PLAYER_2) then
 	};
 end
 
---Extra siren
-t[#t+1] = Def.ActorFrame {
-	Condition=GAMESTATE:HasEarnedExtraStage();
-	LoadActor( "extra" )..{
-		OnCommand=cmd(sleep,5;play);
+if GAMESTATE:HasEarnedExtraStage() then
+
+local timedl = 5;
+
+	--Try extra stage text
+	t[#t+1] = Def.ActorFrame {
+		LoadActor( "_extra" )..{
+			OnCommand=cmd(diffusealpha,0;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-54;sleep,timedl;diffusealpha,1);
+		};
+	}
+
+	--Extra siren
+	t[#t+1] = Def.ActorFrame {
+		LoadActor( "extra" )..{
+			OnCommand=cmd(sleep,timedl;queuecommand,'Play');
+			PlayCommand=cmd(play);
+		};
 	};
-}
+
+end
+
+--Footer
+t[#t+1] = Def.ActorFrame {
+	LoadActor( "../_footer" )..{
+	}
+};
 
 return t
