@@ -290,4 +290,10 @@ t[#t+1] = Def.ActorFrame {
 	}
 };
 
+t[#t+1] = Def.ActorFrame {
+	LoadActor( "../_footer/sr" )..{
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-28);
+	}
+};
+
 return t

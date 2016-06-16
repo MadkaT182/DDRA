@@ -8,4 +8,16 @@ t[#t+1] = LoadActor("_title") .. {
 	OffCommand=cmd();
 };
 
+--Footer
+t[#t+1] = Def.ActorFrame {
+	LoadActor( "../_footer" )..{
+	}
+};
+
+t[#t+1] = Def.ActorFrame {
+	LoadActor( "../_footer/tr" )..{
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-29);
+	}
+};
+
 return t;
