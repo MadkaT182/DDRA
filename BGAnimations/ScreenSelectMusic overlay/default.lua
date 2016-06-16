@@ -6,21 +6,33 @@ t[#t+1] = Def.ActorFrame {
 	}
 };
 
+-- t[#t+1] = Def.ActorFrame {
+-- 	LoadActor( "scan" )..{
+-- 		OnCommand=cmd(x,SCREEN_CENTER_X-230;y,SCREEN_TOP+63;linear,1;addx,300;sleep,1;queuecommand,"On")
+-- 	}
+-- };
+
+-- t[#t+1] = Def.ActorFrame {
+-- 	LoadActor( "mask" )..{
+-- 		OnCommand=cmd(x,SCREEN_CENTER_X-36;y,SCREEN_TOP+74;)
+-- 	}
+-- };
+
 t[#t+1] = Def.ActorFrame {
 	LoadActor( "_info" )..{
 		OnCommand=cmd(x,SCREEN_CENTER_X-214;y,SCREEN_TOP+36)
 	}
 };
 
--- t[#t+1] = Def.ActorFrame {
--- 	LoadActor( "_meter" )..{
--- 		OnCommand=cmd(x,SCREEN_CENTER_X+35;y,SCREEN_TOP+93)
--- 	}
--- };
+t[#t+1] = Def.ActorFrame {
+	LoadActor( "_meter" )..{
+		OnCommand=cmd(x,SCREEN_CENTER_X+14;y,SCREEN_TOP+97)
+	}
+};
 
 t[#t+1] = Def.ActorFrame {
 	LoadActor( "_bpm" )..{
-		OnCommand=cmd(x,SCREEN_CENTER_X+35;y,SCREEN_TOP+93)
+		OnCommand=cmd(x,SCREEN_CENTER_X+31;y,SCREEN_TOP+94)
 	}
 };
 
