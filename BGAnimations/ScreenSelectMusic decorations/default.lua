@@ -68,6 +68,8 @@ if GAMESTATE:IsPlayerEnabled(PLAYER_1) and GAMESTATE:GetPlayMode() ~= 'PlayMode_
 		}
 	};
 
+	t[#t+1] = StandardDecorationFromFileOptional("DifficultyDisplayP1","DifficultyDisplayP1");
+
 	--RadarBG
 	t[#t+1] = Def.ActorFrame {
 		LoadActor("radarbg")..{
@@ -107,6 +109,8 @@ if GAMESTATE:IsPlayerEnabled(PLAYER_2) and GAMESTATE:GetPlayMode() ~= 'PlayMode_
 		}
 	};
 
+	t[#t+1] = StandardDecorationFromFileOptional("DifficultyDisplayP2","DifficultyDisplayP2");
+
 	--RadarBG
 	t[#t+1] = Def.ActorFrame {
 		LoadActor("radarbg")..{
@@ -118,6 +122,12 @@ end
 
 t[#t+1] = Def.ActorFrame {
 	LoadActor( "../_footer" )..{
+	}
+};
+
+t[#t+1] = Def.ActorFrame {
+	LoadActor( "../_footer/sm" )..{
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-26);
 	}
 };
 
