@@ -19,6 +19,12 @@ t[#t+1] = LoadActor("_songinfobg")..{
 	OffCommand=cmd();
 };
 
+--Jacket Frame
+t[#t+1] = Def.Quad{
+	OnCommand=cmd(x,SCREEN_CENTER_X+1;y,SCREEN_TOP+109;zoomto,150,150;diffusecolor,color("#000000"));
+	OffCommand=cmd();
+};
+
 --Jacket
 t[#t+1] = Def.ActorFrame {
 	InitCommand=cmd(x,SCREEN_CENTER_X+1;y,SCREEN_TOP+109;draworder,1);
@@ -57,10 +63,9 @@ t[#t+1] = Def.ActorFrame {
 	};
 };
 
---Song Info
---Song Title
-t[#t+1] = LoadFont("_arial black 20px")..{
-	InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+193);
+--Song Information
+t[#t+1] = LoadFont("_arial_black 18px")..{
+	InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+194);
 	OffCommand=cmd();
 	OnCommand=function(self)
 		local song = GAMESTATE:GetCurrentSong();
@@ -75,7 +80,7 @@ t[#t+1] = LoadFont("_arial black 20px")..{
 				tit=song:GetDisplayMainTitle();
 			end;
 			self:diffusealpha(1);
-			self:maxwidth(220);
+			self:maxwidth(170);
 			self:settext(tit);
 		else
 			self:diffusealpha(0);
@@ -83,10 +88,10 @@ t[#t+1] = LoadFont("_arial black 20px")..{
 	end;
 };
 
---Artist Line
+--Artist Information
 if not GAMESTATE:IsCourseMode() then
-	t[#t+1] = LoadFont("_arial black 20px")..{
-		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+206);
+	t[#t+1] = LoadFont("_arial_blk12px")..{
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+209);
 		OffCommand=cmd();
 		OnCommand=function(self)
 		local song = GAMESTATE:GetCurrentSong();
@@ -101,7 +106,7 @@ if not GAMESTATE:IsCourseMode() then
 					tit=song:GetDisplayArtist();
 				end;
 				self:diffusealpha(1);
-				self:maxwidth(220);
+				self:maxwidth(170);
 				self:settext(tit);
 			else
 				self:diffusealpha(0);
