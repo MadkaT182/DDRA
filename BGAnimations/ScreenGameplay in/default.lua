@@ -2,6 +2,19 @@ local t = Def.ActorFrame{}
 
 if not GAMESTATE:IsDemonstration() then
 
+	--Sidebars
+		t[#t+1] = Def.ActorFrame {
+			LoadActor("../ScreenStageInformation decorations/sidebar") .. {
+				OnCommand=cmd(zoom,0.75;x,SCREEN_RIGHT-68;y,SCREEN_CENTER_Y-18;linear,0.083;zoom,1;x,SCREEN_RIGHT+82;y,SCREEN_CENTER_Y-12;);
+			};
+		};
+
+		t[#t+1] = Def.ActorFrame {
+			LoadActor("../ScreenStageInformation decorations/sidebar") .. {
+				OnCommand=cmd(zoom,0.75;x,SCREEN_LEFT+68;y,SCREEN_CENTER_Y-18;zoomx,-0.75;linear,0.083;zoom,1;x,SCREEN_LEFT-82;y,SCREEN_CENTER_Y-12;zoomx,-1);
+			};
+		};
+
 	--Jacket
 	t[#t+1] = Def.ActorFrame {
 		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;draworder,1);
@@ -34,7 +47,9 @@ if not GAMESTATE:IsDemonstration() then
 					else
 						self:diffusealpha(0);
 				end;
-				self:sleep(3);
+				self:sleep(3.167);
+				self:linear(0.8);
+				self:zoom(1.543);
 				self:diffusealpha(0);
 			end;
 			end;
@@ -42,25 +57,5 @@ if not GAMESTATE:IsDemonstration() then
 	};
 
 end
-
-t[#t+1] = StandardDecorationFromFileOptional("StageFrame","StageFrame");
-
-t[#t+1] = LoadActor("../ScreenGameplay Danger");
-
-t[#t+1] = StandardDecorationFromFile("SongInformation","SongInformation");
-
-for player in ivalues(GAMESTATE:GetHumanPlayers()) do
-
-	t[#t+1] = LoadActor( "OptionIcons/OptionIcons.lua", player )..{
-		InitCommand=function(self)
-			self:x(player == PLAYER_1 and SCREEN_LEFT+108 or SCREEN_RIGHT-84)
-				:y(_screen.cy+165)
-				:draworder(1)
-		end
-	}
-end
-
-t[#t+1] = StandardDecorationFromFile("StageDisplay","StageDisplay");
-t[#t+1] = StandardDecorationFromFile("ScoreFrame","ScoreFrame")
 
 return t
