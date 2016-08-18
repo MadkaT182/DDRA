@@ -1,5 +1,13 @@
 local t = Def.ActorFrame{}
 
+--Sound
+	t[#t+1] = Def.ActorFrame {
+		LoadActor("../_swoosh") .. {
+			OnCommand=cmd(sleep,0.87;queuecommand,"Play");
+			PlayCommand=cmd(play);
+		};
+	};
+
 t[#t+1] = Def.ActorFrame {
 	Def.Quad{
 		OnCommand=cmd(Center;FullScreen;diffusecolor,Color.White;draworder,1;diffusealpha,0.8;linear,0.7;diffusealpha,0;);
