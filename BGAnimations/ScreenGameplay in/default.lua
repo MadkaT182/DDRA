@@ -9,7 +9,32 @@ if not GAMESTATE:IsDemonstration() then
 		};
 	};
 
---Sidebars
+	--BlackBg
+	t[#t+1] = Def.ActorFrame {
+		LoadActor("../ScreenStageInformation decorations/topbg") .. {
+			OnCommand=cmd(zoom,0.75;x,SCREEN_CENTER_X;y,SCREEN_TOP+84;linear,0.083;zoom,1;x,SCREEN_CENTER_X;y,SCREEN_TOP-224);
+		};
+	};
+
+	t[#t+1] = Def.ActorFrame {
+		LoadActor("../ScreenStageInformation decorations/bottombg") .. {
+			OnCommand=cmd(zoom,0.75;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-71;linear,0.083;zoom,1;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM+194);
+		};
+	};
+
+	--Bars
+	t[#t+1] = Def.ActorFrame {
+		LoadActor("../ScreenStageInformation decorations/topbar") .. {
+			OnCommand=cmd(zoom,0.75;x,SCREEN_CENTER_X;y,SCREEN_TOP+58;linear,0.083;zoom,1;x,SCREEN_CENTER_X;y,SCREEN_TOP-154);
+		};
+	};
+
+	t[#t+1] = Def.ActorFrame {
+		LoadActor("../ScreenStageInformation decorations/bottombar") .. {
+			OnCommand=cmd(zoom,0.75;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-59;linear,0.083;zoom,1;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM+156);
+		};
+	};
+
 	t[#t+1] = Def.ActorFrame {
 		LoadActor("../ScreenStageInformation decorations/sidebar") .. {
 			OnCommand=cmd(zoom,0.75;x,SCREEN_RIGHT-68;y,SCREEN_CENTER_Y-18;linear,0.083;zoom,1;x,SCREEN_RIGHT+82;y,SCREEN_CENTER_Y-12;);
@@ -54,7 +79,7 @@ if not GAMESTATE:IsDemonstration() then
 					else
 						self:diffusealpha(0);
 				end;
-				self:sleep(3.167);
+				--self:sleep(3.167);
 				self:linear(0.8);
 				self:zoom(1.543);
 				self:diffusealpha(0);
