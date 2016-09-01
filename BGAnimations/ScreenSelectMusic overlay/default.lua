@@ -6,17 +6,18 @@ t[#t+1] = Def.ActorFrame {
 	}
 };
 
--- t[#t+1] = Def.ActorFrame {
--- 	LoadActor( "scan" )..{
--- 		OnCommand=cmd(x,SCREEN_CENTER_X-230;y,SCREEN_TOP+63;linear,1;addx,300;sleep,1;queuecommand,"On")
--- 	}
--- };
+t[#t+1] = Def.ActorFrame {
+	LoadActor( "mask" )..{
+		OnCommand=cmd(x,SCREEN_CENTER_X-36;y,SCREEN_TOP+74;blend,'BlendMode_NoEffect';zwrite,true;clearzbuffer,false;)
+	}
+};
 
--- t[#t+1] = Def.ActorFrame {
--- 	LoadActor( "mask" )..{
--- 		OnCommand=cmd(x,SCREEN_CENTER_X-36;y,SCREEN_TOP+74;)
--- 	}
--- };
+t[#t+1] = Def.ActorFrame {
+	LoadActor( "scan" )..{
+		OnCommand=cmd(x,SCREEN_CENTER_X-230;y,SCREEN_TOP+63;linear,1;addx,300;sleep,1;ztest,true;queuecommand,"On")
+	}
+};
+
 
 t[#t+1] = Def.ActorFrame {
 	LoadActor( "_info" )..{
