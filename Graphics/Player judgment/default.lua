@@ -2,6 +2,10 @@ local c;
 local player = Var "Player";
 local bShowProtiming = GetUserPrefB("UserPrefProtiming" .. ToEnumShortString(player) );
 
+if bShowProtiming == nil then
+	bShowProtiming = false;
+end
+
 local function MakeAverage( t )
 	local sum = 0;
 	for i=1,#t do
