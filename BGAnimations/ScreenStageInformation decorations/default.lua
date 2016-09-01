@@ -1,33 +1,57 @@
 local t = Def.ActorFrame{}
 
 --Sound
-	t[#t+1] = Def.ActorFrame {
-		LoadActor("../_swoosh") .. {
-			OnCommand=cmd(sleep,0.87;queuecommand,"Play");
-			PlayCommand=cmd(play);
-		};
+t[#t+1] = Def.ActorFrame {
+	LoadActor("../_swoosh") .. {
+		OnCommand=cmd(sleep,0.87;queuecommand,"Play");
+		PlayCommand=cmd(play);
 	};
+};
 
+--BlackBg
+t[#t+1] = Def.ActorFrame {
+	LoadActor("topbg") .. {
+		OnCommand=cmd(diffusealpha,0;x,SCREEN_CENTER_X;y,SCREEN_TOP-2;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;x,SCREEN_CENTER_X;y,SCREEN_TOP+84;);
+	};
+};
+
+t[#t+1] = Def.ActorFrame {
+	LoadActor("bottombg") .. {
+		OnCommand=cmd(diffusealpha,0;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM+7;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-71;);
+	};
+};
+
+--White Flare
 t[#t+1] = Def.ActorFrame {
 	Def.Quad{
 		OnCommand=cmd(Center;FullScreen;diffusecolor,Color.White;draworder,1;diffusealpha,0.8;linear,0.7;diffusealpha,0;);
 	};
 };
 
---Sidebars
-	t[#t+1] = Def.ActorFrame {
-		LoadActor("sidebar") .. {
-			--OnCommand=cmd(diffusealpha,0;x,SCREEN_RIGHT+39;y,SCREEN_CENTER_Y-12;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;x,SCREEN_RIGHT-68;y,SCREEN_CENTER_Y-18;sleep,2.617;zoom,1;x,SCREEN_RIGHT+82;y,SCREEN_CENTER_Y-12;);
-			OnCommand=cmd(diffusealpha,0;x,SCREEN_RIGHT+39;y,SCREEN_CENTER_Y-12;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;x,SCREEN_RIGHT-68;y,SCREEN_CENTER_Y-18;);
-		};
+--Bars
+t[#t+1] = Def.ActorFrame {
+	LoadActor("topbar") .. {
+		OnCommand=cmd(diffusealpha,0;x,SCREEN_CENTER_X;y,SCREEN_TOP+9;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;x,SCREEN_CENTER_X;y,SCREEN_TOP+58;);
 	};
+};
 
-	t[#t+1] = Def.ActorFrame {
-		LoadActor("sidebar") .. {
-			--OnCommand=cmd(diffusealpha,0;x,SCREEN_LEFT-39;y,SCREEN_CENTER_Y-12;zoomx,-1;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;x,SCREEN_LEFT+68;y,SCREEN_CENTER_Y-18;zoomx,-0.75;sleep,2.617;zoom,1;x,SCREEN_LEFT-82;y,SCREEN_CENTER_Y-12;zoomx,-1);
-			OnCommand=cmd(diffusealpha,0;x,SCREEN_LEFT-39;y,SCREEN_CENTER_Y-12;zoomx,-1;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;x,SCREEN_LEFT+68;y,SCREEN_CENTER_Y-18;zoomx,-0.75;);
-		};
+t[#t+1] = Def.ActorFrame {
+	LoadActor("bottombar") .. {
+		OnCommand=cmd(diffusealpha,0;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-4;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-59;);
 	};
+};
+
+t[#t+1] = Def.ActorFrame {
+	LoadActor("sidebar") .. {
+		OnCommand=cmd(diffusealpha,0;x,SCREEN_RIGHT+39;y,SCREEN_CENTER_Y-12;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;x,SCREEN_RIGHT-68;y,SCREEN_CENTER_Y-18;);
+	};
+};
+
+t[#t+1] = Def.ActorFrame {
+	LoadActor("sidebar") .. {
+		OnCommand=cmd(diffusealpha,0;x,SCREEN_LEFT-39;y,SCREEN_CENTER_Y-12;zoomx,-1;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;x,SCREEN_LEFT+68;y,SCREEN_CENTER_Y-18;zoomx,-0.75;);
+	};
+};
 
 --Jacket
 t[#t+1] = Def.ActorFrame {
