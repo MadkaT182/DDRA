@@ -1,48 +1,5 @@
 local t = Def.ActorFrame{}
 
-if not GAMESTATE:IsDemonstration() then
-
-	--Jacket
-	t[#t+1] = Def.ActorFrame {
-		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;draworder,1);
-		Def.Sprite {
-			OnCommand=function (self)
-				local course = GAMESTATE:GetCurrentCourse();
-				if GAMESTATE:IsCourseMode() then
-					if course:GetBackgroundPath() then
-						self:Load(course:GetBackgroundPath())
-						self:setsize(300,300);
-					else
-						self:Load(THEME:GetPathG("", "Common fallback jacket"));
-						self:setsize(300,300);
-					end;
-				else
-				local song = GAMESTATE:GetCurrentSong();
-					if song then
-						if song:HasJacket() then
-							self:diffusealpha(1);
-							self:LoadBackground(song:GetJacketPath());
-							self:setsize(300,300);
-						elseif song:HasBackground() then
-							self:diffusealpha(1);
-							self:LoadFromSongBackground(GAMESTATE:GetCurrentSong());
-							self:setsize(300,300);
-						else
-							self:Load(THEME:GetPathG("","Common fallback jacket"));
-							self:setsize(300,300);
-						end;
-					else
-						self:diffusealpha(0);
-				end;
-				self:sleep(3);
-				self:diffusealpha(0);
-			end;
-			end;
-		};
-	};
-
-end
-
 t[#t+1] = StandardDecorationFromFileOptional("StageFrame","StageFrame");
 
 t[#t+1] = LoadActor("../ScreenGameplay Danger");
@@ -62,5 +19,50 @@ end
 
 t[#t+1] = StandardDecorationFromFile("StageDisplay","StageDisplay");
 t[#t+1] = StandardDecorationFromFile("ScoreFrame","ScoreFrame")
+
+--Scoring
+-- local customscore=GetCustomScoreMode();
+--  local cscore="SuperNOVA2";
+--  if not GAMESTATE:IsCourseMode() then
+--  local stepcnt={0,0}
+--  t[#t+1] = Def.Actor{
+--      JudgmentMessageCommand = function(self, params)
+--          if params.TapNoteScore and
+--           params.TapNoteScore ~= 'TapNoteScore_AvoidMine' and
+--           params.TapNoteScore ~= 'TapNoteScore_HitMine' and
+--           params.TapNoteScore ~= 'TapNoteScore_CheckpointMiss' and
+--           params.TapNoteScore ~= 'TapNoteScore_CheckpointHit' and
+--           params.TapNoteScore ~= 'TapNoteScore_None'
+--          then
+--              if customscore=="old" then
+--                  Scoring[scoreType](params, 
+--                      STATSMAN:GetCurStageStats():GetPlayerStageStats(params.Player))
+--              elseif customscore=="5b2" then
+--                  local pn=((params.Player==PLAYER_1) and 1 or 2);
+--                  stepcnt[pn]=stepcnt[pn]+1;
+--                  CustomScore_SM5b2(params,cscore,GAMESTATE:GetCurrentSteps(params.Player),stepcnt[pn]);
+--              elseif customscore=="5b1" then
+--                  local pn=((params.Player==PLAYER_1) and 1 or 2);
+--                  stepcnt[pn]=stepcnt[pn]+1;
+--                  CustomScore_SM5b1(params,cscore,GAMESTATE:GetCurrentSteps(params.Player),stepcnt[pn]);
+--              else
+--                  local pn=((params.Player==PLAYER_1) and 1 or 2);
+--                  stepcnt[pn]=stepcnt[pn]+1;
+--                  CustomScore_SM5a2(params,cscore,GAMESTATE:GetCurrentSteps(params.Player),stepcnt[pn]);
+--              end;
+--          end
+--      end;
+--      InitCommand=function(self)
+--          if customscore=="non" then
+--              CustomScore_SM5a2_Init();
+--          end;
+--      end;
+--      OffCommand=function(self)
+--          if customscore=="non" then
+--              CustomScore_SM5a2_Out();
+--          end;
+--      end;
+--  };
+--  end;
 
 return t
