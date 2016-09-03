@@ -53,6 +53,13 @@ local function CoinsText()
 			else
 				s=''
 			end
+
+			if GAMESTATE:GetCoinMode() == 'CoinMode_Pay' then
+				self:visible(true);
+			else
+				self:visible(false);
+			end
+
 			self:settext(s)
 		end;
 		UpdateVisibleCommand=function(self)
