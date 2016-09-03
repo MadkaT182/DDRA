@@ -132,5 +132,17 @@ t[#t+1] = LoadFont("Bpm")..{
 	CurrentSongChangedMessageCommand=cmd(playcommand,"Set");
 };
 
+--Selection cursor
+t[#t+1] = Def.ActorFrame {
+	LoadActor( "cursor" )..{
+		OnCommand=cmd(x,SCREEN_CENTER_X-194;y,SCREEN_CENTER_Y)
+	}
+};
+
+t[#t+1] = Def.ActorFrame {
+	LoadActor( "cursor" )..{
+		OnCommand=cmd(x,SCREEN_CENTER_X+194;y,SCREEN_CENTER_Y;zoomx,-1)
+	}
+};
 
 return t
