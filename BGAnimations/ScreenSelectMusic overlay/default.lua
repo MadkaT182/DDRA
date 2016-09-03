@@ -107,4 +107,30 @@ t[#t+1] = Def.ActorFrame {
 	CurrentSongChangedMessageCommand=cmd(playcommand,"Set");
 };
 
+--BPM
+t[#t+1] = LoadFont("Bpm")..{
+	InitCommand=cmd(x,SCREEN_CENTER_X+69;addy,87);
+	SetCommand=function(self)
+		local song = GAMESTATE:GetCurrentSong();
+		if song then
+			local bpmtext;
+			bpmtext = song:GetDisplayBpms();
+			if bpmtext[1] == bpmtext[2] then
+				bpmtext = bpmtext[1];
+			else
+				bpmtext = string.format("%d\nx%d",bpmtext[1],bpmtext[2]);
+			end
+			self:horizalign(right);
+			self:vertalign(top);
+			self:settext(bpmtext);
+			self:visible(true);
+		else
+			self:visible(false);
+		end
+	end;
+
+	CurrentSongChangedMessageCommand=cmd(playcommand,"Set");
+};
+
+
 return t
