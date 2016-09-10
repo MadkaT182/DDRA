@@ -49,6 +49,12 @@ function thified_curstage_index(on_eval)
 		ordinal ="nd";
 	elseif GAMESTATE:GetCurrentStageIndex() + adjust == 3 then
 		ordinal ="rd";
+	elseif GAMESTATE:GetCurrentStageIndex() + adjust == 11 then
+		ordinal ="th";
+	elseif GAMESTATE:GetCurrentStageIndex() + adjust == 12 then
+		ordinal ="th";
+	elseif GAMESTATE:GetCurrentStageIndex() + adjust == 13 then
+		ordinal ="th";
 	end
 
 	if GAMESTATE:GetCurrentStage() == "Stage_Final" or GAMESTATE:IsExtraStage() or GAMESTATE:IsExtraStage2() then
