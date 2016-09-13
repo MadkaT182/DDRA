@@ -6,6 +6,35 @@ t[#t+1] = LoadActor("../ScreenGameplay Danger");
 
 t[#t+1] = StandardDecorationFromFile("SongInformation","SongInformation");
 
+t[#t+1] = Def.Actor{
+    Name="ScoringController",
+    JudgmentMessageCommand = function(_,params)
+        if not (( ScoringInfo[params.Player]) and
+            (ScoringInfo.seed == GAMESTATE:GetStageSeed())) then
+            SN2Scoring.PrepareScoringInfo()
+            ScoringInfo.seed = GAMESTATE:GetStageSeed()
+        end
+        local stage = GAMESTATE:IsCourseMode() and GAMESTATE:GetCourseSongIndex() + 1 or nil
+        local info = ScoringInfo[params.Player]
+        if params.HoldNoteScore then
+            info.AddHoldScore(params.HoldNoteScore, stage)
+        else
+            info.AddTapScore(params.TapNoteScore, stage)
+        end
+        local pss = STATSMAN:GetCurStageStats():GetPlayerStageStats(params.Player)
+        pss:SetScore(info.GetCurrentScore())
+        pss:SetCurMaxScore(info.GetCurrentMaxScore())
+        local es = (GAMESTATE:Env()).EndlessState
+        if es then
+            es.scoring.handleNoteScore(params.HoldNoteScore or params.TapNoteScore,
+                GAMESTATE:GetCurrentStageIndex()+1,
+                pss:GetCurrentCombo())
+            --SCREENMAN:SystemMessage(es.scoring.getScoreString())
+        end
+    end,
+}
+
+
 for player in ivalues(GAMESTATE:GetHumanPlayers()) do
 
 	t[#t+1] = LoadActor( "OptionIcons/OptionIcons.lua", player )..{
@@ -35,7 +64,7 @@ t[#t+1] = StandardDecorationFromFile("ScoreFrame","ScoreFrame")
 --           params.TapNoteScore ~= 'TapNoteScore_None'
 --          then
 --              if customscore=="old" then
---                  Scoring[scoreType](params, 
+--                  Scoring[scoreType](params,
 --                      STATSMAN:GetCurStageStats():GetPlayerStageStats(params.Player))
 --              elseif customscore=="5b2" then
 --                  local pn=((params.Player==PLAYER_1) and 1 or 2);
