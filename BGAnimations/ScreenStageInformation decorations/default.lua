@@ -8,48 +8,39 @@ t[#t+1] = Def.ActorFrame {
 	};
 };
 
+--It'll be much easier to do the zoom effect if everything was on a single ActorFrame Table. -Inorizushi
+t[#t+1] = Def.ActorFrame {
+--Scanline
+	LoadActor("scanlines")..{
+		InitCommand=cmd(Center;diffusealpha,0.5);
+		OnCommand=cmd(zoom,1.2;sleep,0.833;linear,0.083;zoom,0.75);
+	};
 --BlackBg
-t[#t+1] = Def.ActorFrame {
 	LoadActor("topbg") .. {
-		OnCommand=cmd(diffusealpha,0;x,SCREEN_CENTER_X;y,SCREEN_TOP-2;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;x,SCREEN_CENTER_X;y,SCREEN_TOP+84;);
+		InitCommand=cmd(CenterX;y,SCREEN_TOP-2);
+		OnCommand=cmd(zoom,1.2;diffusealpha,0;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;y,SCREEN_TOP+84;);
 	};
-};
-
-t[#t+1] = Def.ActorFrame {
 	LoadActor("bottombg") .. {
-		OnCommand=cmd(diffusealpha,0;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM+7;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-71;);
+		InitCommand=cmd(CenterX;y,SCREEN_BOTTOM-7);
+		OnCommand=cmd(zoom,1.2;diffusealpha,0;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;y,SCREEN_BOTTOM-71;);
 	};
-};
-
---White Flare
-t[#t+1] = Def.ActorFrame {
-	Def.Quad{
-		OnCommand=cmd(Center;FullScreen;diffusecolor,Color.White;draworder,1;diffusealpha,0.8;linear,0.7;diffusealpha,0;);
-	};
-};
-
 --Bars
-t[#t+1] = Def.ActorFrame {
 	LoadActor("topbar") .. {
-		OnCommand=cmd(diffusealpha,0;x,SCREEN_CENTER_X;y,SCREEN_TOP+9;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;x,SCREEN_CENTER_X;y,SCREEN_TOP+58;);
+		InitCommand=cmd(CenterX;y,SCREEN_TOP+9);
+		OnCommand=cmd(zoom,1.2;diffusealpha,0;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;y,SCREEN_TOP+58;);
 	};
-};
-
-t[#t+1] = Def.ActorFrame {
 	LoadActor("bottombar") .. {
-		OnCommand=cmd(diffusealpha,0;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-4;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-59;);
+		InitCommand=cmd(CenterX;y,SCREEN_BOTTOM-4);
+		OnCommand=cmd(zoom,1.2;diffusealpha,0;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;y,SCREEN_BOTTOM-59;);
 	};
 };
 
-t[#t+1] = Def.ActorFrame {
-	LoadActor("sidebar") .. {
-		OnCommand=cmd(diffusealpha,0;x,SCREEN_RIGHT+39;y,SCREEN_CENTER_Y-12;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;x,SCREEN_RIGHT-68;y,SCREEN_CENTER_Y-18;);
+t[#t+1] = Def.ActorFrame{
+		LoadActor("sidebar") .. {
+		OnCommand=cmd(zoom,1.2;diffusealpha,0;x,SCREEN_RIGHT+39;y,SCREEN_CENTER_Y-12;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;x,SCREEN_RIGHT-68;y,SCREEN_CENTER_Y-18;);
 	};
-};
-
-t[#t+1] = Def.ActorFrame {
 	LoadActor("sidebar") .. {
-		OnCommand=cmd(diffusealpha,0;x,SCREEN_LEFT-39;y,SCREEN_CENTER_Y-12;zoomx,-1;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;x,SCREEN_LEFT+68;y,SCREEN_CENTER_Y-18;zoomx,-0.75;);
+		OnCommand=cmd(zoom,1.2;diffusealpha,0;x,SCREEN_LEFT-39;y,SCREEN_CENTER_Y-12;zoomx,-1;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;x,SCREEN_LEFT+68;y,SCREEN_CENTER_Y-18;zoomx,-0.75;);
 	};
 };
 
@@ -86,11 +77,18 @@ t[#t+1] = Def.ActorFrame {
 					self:diffusealpha(0);
 			end;
 			self:diffusealpha(0);
-			self:sleep(1.983);
+			self:sleep(2.8);
 			self:diffusealpha(1);
 			self:sleep(1.584);
 		end;
 		end;
+	};
+};
+
+t[#t+1] = Def.ActorFrame{
+	LoadActor("jacket-bg")..{
+		InitCommand=cmd(Center;diffusealpha,0;zoom,1.05);
+		OnCommand=cmd(sleep,1.5;diffusealpha,1;sleep,0.1;diffusealpha,0;sleep,0.401;diffusealpha,1;sleep,0.05;diffusealpha,0;sleep,0.05;diffusealpha,1;sleep,0.05;diffusealpha,0;sleep,0.05;diffusealpha,1;linear,0.1;zoom,1;linear,0.05;zoom,1.4;diffusealpha,0);
 	};
 };
 
@@ -99,7 +97,7 @@ t[#t+1] = Def.ActorFrame {
 		--InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-66);
 		--InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-66;zoom,0.8;addy,4);
 		--InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-66;addy,4;zoomx,3;zoomy,.27);
-		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-66;sleep,1.25;linear,0.401;zoom,0.8;addy,4;sleep,0.216;linear,0.033;zoomx,3;zoomy,0);
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-66;sleep,1.25;linear,0.401;zoom,0.8;addy,4;sleep,0.5;sleep,0.216;linear,0.033;zoomx,3;zoomy,0);
 	}
 };
 
@@ -108,7 +106,7 @@ t[#t+1] = Def.ActorFrame {
 		--InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-44);
 		--InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-44;zoom,0.8;);
 		--InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-44;zoomx,3;zoomy,0);
-		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-44;sleep,1.25;linear,0.401;zoom,0.8;sleep,0.216;linear,0.033;zoomx,3;zoomy,0);
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-44;sleep,1.25;linear,0.401;zoom,0.8;sleep,0.5;sleep,0.216;linear,0.033;zoomx,3;zoomy,0);
 	}
 };
 
@@ -117,8 +115,15 @@ t[#t+1] = Def.ActorFrame {
 		--InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-44);
 		--InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-44;zoom,0.8;);
 		--InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-44;zoomx,3;zoomy,0);
-		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-44;cropright,1;sleep,1.25;linear,0.401;zoom,0.8;cropright,0;sleep,0.216;linear,0.033;zoomx,3;zoomy,0);
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-44;cropright,1;sleep,1.25;linear,0.401;zoom,0.8;linear,0.5;cropright,0;sleep,0.216;linear,0.033;zoomx,3;zoomy,0);
 	}
+};
+
+--White Flare
+t[#t+1] = Def.ActorFrame {
+	Def.Quad{
+		OnCommand=cmd(Center;FullScreen;diffusecolor,Color.White;draworder,1;diffusealpha,0.8;linear,0.7;diffusealpha,0;);
+	};
 };
 
 return t
