@@ -9,39 +9,33 @@ t[#t+1] = Def.ActorFrame {
 	LoadActor("SoundStage") .. {};
 };
 
---It'll be much easier to do the zoom effect if everything was on a single ActorFrame Table. -Inorizushi
 t[#t+1] = Def.ActorFrame {
---Scanline
+--Scanlines
 	LoadActor("scanlines")..{
 		InitCommand=cmd(Center;diffusealpha,0.5);
 		OnCommand=cmd(zoom,1.2;sleep,0.833;linear,0.083;zoom,0.75);
 	};
 --BlackBg
 	LoadActor("topbg") .. {
-		InitCommand=cmd(CenterX;y,SCREEN_TOP-2);
-		OnCommand=cmd(zoom,1.2;diffusealpha,0;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;y,SCREEN_TOP+84;);
+		OnCommand=cmd(diffusealpha,0;x,SCREEN_CENTER_X;y,SCREEN_TOP-2;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;x,SCREEN_CENTER_X;y,SCREEN_TOP+84;);
 	};
 	LoadActor("bottombg") .. {
-		InitCommand=cmd(CenterX;y,SCREEN_BOTTOM-7);
-		OnCommand=cmd(zoom,1.2;diffusealpha,0;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;y,SCREEN_BOTTOM-71;);
+		OnCommand=cmd(diffusealpha,0;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM+7;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-71;);
 	};
---Bars
 	LoadActor("topbar") .. {
-		InitCommand=cmd(CenterX;y,SCREEN_TOP+9);
-		OnCommand=cmd(zoom,1.2;diffusealpha,0;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;y,SCREEN_TOP+58;);
+		OnCommand=cmd(diffusealpha,0;x,SCREEN_CENTER_X;y,SCREEN_TOP+9;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;x,SCREEN_CENTER_X;y,SCREEN_TOP+58;);
 	};
 	LoadActor("bottombar") .. {
-		InitCommand=cmd(CenterX;y,SCREEN_BOTTOM-4);
-		OnCommand=cmd(zoom,1.2;diffusealpha,0;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;y,SCREEN_BOTTOM-59;);
+		OnCommand=cmd(diffusealpha,0;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-4;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-59;);
 	};
 };
 
-t[#t+1] = Def.ActorFrame{
-		LoadActor("sidebar") .. {
-		OnCommand=cmd(zoom,1.2;diffusealpha,0;x,SCREEN_RIGHT+39;y,SCREEN_CENTER_Y-12;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;x,SCREEN_RIGHT-68;y,SCREEN_CENTER_Y-18;);
+t[#t+1] = Def.ActorFrame {
+	LoadActor("sidebar") .. {
+		OnCommand=cmd(diffusealpha,0;x,SCREEN_RIGHT+39;y,SCREEN_CENTER_Y-12;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;x,SCREEN_RIGHT-68;y,SCREEN_CENTER_Y-18;);
 	};
 	LoadActor("sidebar") .. {
-		OnCommand=cmd(zoom,1.2;diffusealpha,0;x,SCREEN_LEFT-39;y,SCREEN_CENTER_Y-12;zoomx,-1;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;x,SCREEN_LEFT+68;y,SCREEN_CENTER_Y-18;zoomx,-0.75;);
+		OnCommand=cmd(diffusealpha,0;x,SCREEN_LEFT-39;y,SCREEN_CENTER_Y-12;zoomx,-1;sleep,0.034;diffusealpha,1;sleep,0.833;linear,0.083;zoom,0.75;x,SCREEN_LEFT+68;y,SCREEN_CENTER_Y-18;zoomx,-0.75;);
 	};
 };
 
@@ -78,7 +72,7 @@ t[#t+1] = Def.ActorFrame {
 					self:diffusealpha(0);
 			end;
 			self:diffusealpha(0);
-			self:sleep(2.8);
+			self:sleep(1.983);
 			self:diffusealpha(1);
 			self:sleep(1.584);
 		end;
@@ -86,37 +80,30 @@ t[#t+1] = Def.ActorFrame {
 	};
 };
 
-t[#t+1] = Def.ActorFrame{
+t[#t+1] = Def.ActorFrame {
 	LoadActor("jacket-bg")..{
-		InitCommand=cmd(Center;diffusealpha,0;zoom,1.05);
-		OnCommand=cmd(sleep,1.5;diffusealpha,1;sleep,0.1;diffusealpha,0;sleep,0.401;diffusealpha,1;sleep,0.05;diffusealpha,0;sleep,0.05;diffusealpha,1;sleep,0.05;diffusealpha,0;sleep,0.05;diffusealpha,1;linear,0.1;zoom,1;linear,0.05;zoom,1.4;diffusealpha,0);
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+166;zoomy,0.0129;zoomx,1.3;diffusealpha,0;sleep,1.267;diffusealpha,1;sleep,0.017;diffusealpha,0;zoomy,0.0645;addy,-8;sleep,0.017;diffusealpha,1;sleep,0.017;diffusealpha,0;zoomy,0.1741;addy,-17;sleep,0.033;diffusealpha,1;sleep,0.017;diffusealpha,0;zoomy,0.2806;addy,-17;zoomx,1.265;sleep,0.017;diffusealpha,1;sleep,0.017;diffusealpha,0;zoomy,0.407;zoomx,1.245;addy,-17;sleep,0.017;diffusealpha,1;sleep,0.017;diffusealpha,0;zoomy,0.527;addy,-18;zoomx,1.201;sleep,0.017;diffusealpha,1;sleep,0.017;diffusealpha,0;zoomy,0.7;zoomx,1.126;addy,-25;sleep,0.034;diffusealpha,1;sleep,0.017;diffusealpha,0;zoomy,0.790;zoomx,1.116;addy,-18;sleep,0.017;diffusealpha,1;sleep,0.017;diffusealpha,0;zoomy,0.952;zoomx,1.066;addy,-25;sleep,0.017;diffusealpha,1;sleep,0.017;diffusealpha,0;);
+	};
+	LoadActor("jacket-bg")..{
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+19;diffusealpha,0;sleep,1.617;zoomy,1.033;zoomx,1.033;addy,-3;sleep,0.034;diffusealpha,1;sleep,0.017;diffusealpha,0;sleep,0.016;diffusealpha,1;sleep,0.018;diffusealpha,0;sleep,0.017;diffusealpha,1;sleep,0.016;diffusealpha,0;sleep,0.018;diffusealpha,1;sleep,0.017;diffusealpha,0;sleep,0.016;diffusealpha,1;sleep,0.018;diffusealpha,0;sleep,0.150;zoomx,1.72;zoomy,0.335;addy,98;diffusealpha,1;sleep,0.017;diffusealpha,0;sleep,0.017;);
 	};
 };
 
 t[#t+1] = Def.ActorFrame {
 	LoadActor( "con_label" )..{
-		--InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-66);
-		--InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-66;zoom,0.8;addy,4);
-		--InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-66;addy,4;zoomx,3;zoomy,.27);
-		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-66;sleep,1.25;linear,0.401;zoom,0.8;addy,4;sleep,0.5;sleep,0.216;linear,0.033;zoomx,3;zoomy,0);
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-66;sleep,1.25;linear,0.401;zoom,0.8;addy,4;sleep,0.216;linear,0.033;zoomx,3;zoomy,0);
 	}
 };
 
 t[#t+1] = Def.ActorFrame {
 	LoadActor( "prog_bg" )..{
-		--InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-44);
-		--InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-44;zoom,0.8;);
-		--InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-44;zoomx,3;zoomy,0);
-		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-44;sleep,1.25;linear,0.401;zoom,0.8;sleep,0.5;sleep,0.216;linear,0.033;zoomx,3;zoomy,0);
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-44;sleep,1.25;linear,0.401;zoom,0.8;sleep,0.216;linear,0.033;zoomx,3;zoomy,0);
 	}
 };
 
 t[#t+1] = Def.ActorFrame {
 	LoadActor( "progbar" )..{
-		--InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-44);
-		--InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-44;zoom,0.8;);
-		--InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-44;zoomx,3;zoomy,0);
-		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-44;cropright,1;sleep,1.25;linear,0.401;zoom,0.8;linear,0.5;cropright,0;sleep,0.216;linear,0.033;zoomx,3;zoomy,0);
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-44;cropright,1;sleep,1.25;linear,0.401;zoom,0.8;cropright,0;sleep,0.216;linear,0.033;zoomx,3;zoomy,0);
 	}
 };
 
