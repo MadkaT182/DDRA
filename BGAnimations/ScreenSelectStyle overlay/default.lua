@@ -8,10 +8,10 @@ t[#t+1] = Def.ActorFrame {
 
 	--Title
     LoadActor("_title") .. {
-		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+19);
-		OffCommand=cmd();
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+19);
+		OnCommand=cmd(addy,-32;sleep,0.2;decelerate,0.0833;addy,32);
+		OffCommand=cmd(finishtweening;sleep,0.2;decelerate,0.0833;addy,-32);
     };
-
 	--Player BG
     LoadActor("P1Frame") .. {
         InitCommand=cmd(x,SCREEN_LEFT+142;y,SCREEN_BOTTOM-63;);

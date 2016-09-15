@@ -6,6 +6,7 @@ t[#t+1] = Def.ActorFrame {
 		OnCommand=cmd(sleep,0.87;queuecommand,"Play");
 		PlayCommand=cmd(play);
 	};
+	LoadActor("SoundStage") .. {};
 };
 
 --It'll be much easier to do the zoom effect if everything was on a single ActorFrame Table. -Inorizushi
