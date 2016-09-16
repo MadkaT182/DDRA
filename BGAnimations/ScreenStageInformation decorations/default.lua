@@ -39,9 +39,18 @@ t[#t+1] = Def.ActorFrame {
 	};
 };
 
+t[#t+1] = Def.ActorFrame {
+	LoadActor("jacket-bg")..{
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+166;zoomy,0.0129;zoomx,1.3;diffusealpha,0;sleep,1.267;diffusealpha,1;sleep,0.017;diffusealpha,0;zoomy,0.0645;addy,-8;sleep,0.017;diffusealpha,1;sleep,0.017;diffusealpha,0;zoomy,0.1741;addy,-17;sleep,0.033;diffusealpha,1;sleep,0.017;diffusealpha,0;zoomy,0.2806;addy,-17;zoomx,1.265;sleep,0.017;diffusealpha,1;sleep,0.017;diffusealpha,0;zoomy,0.407;zoomx,1.245;addy,-17;sleep,0.017;diffusealpha,1;sleep,0.017;diffusealpha,0;zoomy,0.527;addy,-18;zoomx,1.201;sleep,0.017;diffusealpha,1;sleep,0.017;diffusealpha,0;zoomy,0.7;zoomx,1.126;addy,-25;sleep,0.034;diffusealpha,1;sleep,0.017;diffusealpha,0;zoomy,0.790;zoomx,1.116;addy,-18;sleep,0.017;diffusealpha,1;sleep,0.017;diffusealpha,0;zoomy,0.952;zoomx,1.066;addy,-25;sleep,0.017;diffusealpha,1;sleep,0.017;diffusealpha,0;);
+	};
+	LoadActor("jacket-bg")..{
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+19;diffusealpha,0;sleep,1.617;zoomy,1.033;zoomx,1.033;addy,-3;sleep,0.034;diffusealpha,1;sleep,0.017;diffusealpha,0;sleep,0.016;diffusealpha,1;sleep,0.018;diffusealpha,0;sleep,0.017;diffusealpha,1;sleep,0.016;diffusealpha,0;sleep,0.018;diffusealpha,1;sleep,0.017;diffusealpha,0;sleep,0.016;diffusealpha,1;sleep,0.018;diffusealpha,0;sleep,0.150;zoomx,1.72;zoomy,0.335;addy,98;diffusealpha,1;sleep,0.017;diffusealpha,0;sleep,0.017;);
+	};
+};
+
 --Jacket
 t[#t+1] = Def.ActorFrame {
-	InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;draworder,1);
+	InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;);
 	Def.Sprite {
 		OnCommand=function (self)
 			local course = GAMESTATE:GetCurrentCourse();
@@ -81,15 +90,6 @@ t[#t+1] = Def.ActorFrame {
 };
 
 t[#t+1] = Def.ActorFrame {
-	LoadActor("jacket-bg")..{
-		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+166;zoomy,0.0129;zoomx,1.3;diffusealpha,0;sleep,1.267;diffusealpha,1;sleep,0.017;diffusealpha,0;zoomy,0.0645;addy,-8;sleep,0.017;diffusealpha,1;sleep,0.017;diffusealpha,0;zoomy,0.1741;addy,-17;sleep,0.033;diffusealpha,1;sleep,0.017;diffusealpha,0;zoomy,0.2806;addy,-17;zoomx,1.265;sleep,0.017;diffusealpha,1;sleep,0.017;diffusealpha,0;zoomy,0.407;zoomx,1.245;addy,-17;sleep,0.017;diffusealpha,1;sleep,0.017;diffusealpha,0;zoomy,0.527;addy,-18;zoomx,1.201;sleep,0.017;diffusealpha,1;sleep,0.017;diffusealpha,0;zoomy,0.7;zoomx,1.126;addy,-25;sleep,0.034;diffusealpha,1;sleep,0.017;diffusealpha,0;zoomy,0.790;zoomx,1.116;addy,-18;sleep,0.017;diffusealpha,1;sleep,0.017;diffusealpha,0;zoomy,0.952;zoomx,1.066;addy,-25;sleep,0.017;diffusealpha,1;sleep,0.017;diffusealpha,0;);
-	};
-	LoadActor("jacket-bg")..{
-		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+19;diffusealpha,0;sleep,1.617;zoomy,1.033;zoomx,1.033;addy,-3;sleep,0.034;diffusealpha,1;sleep,0.017;diffusealpha,0;sleep,0.016;diffusealpha,1;sleep,0.018;diffusealpha,0;sleep,0.017;diffusealpha,1;sleep,0.016;diffusealpha,0;sleep,0.018;diffusealpha,1;sleep,0.017;diffusealpha,0;sleep,0.016;diffusealpha,1;sleep,0.018;diffusealpha,0;sleep,0.150;zoomx,1.72;zoomy,0.335;addy,98;diffusealpha,1;sleep,0.017;diffusealpha,0;sleep,0.017;);
-	};
-};
-
-t[#t+1] = Def.ActorFrame {
 	LoadActor( "con_label" )..{
 		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-66;sleep,1.25;linear,0.401;zoom,0.8;addy,4;sleep,0.216;linear,0.033;zoomx,3;zoomy,0);
 	}
@@ -112,6 +112,7 @@ t[#t+1] = Def.ActorFrame {
 	Def.Quad{
 		OnCommand=cmd(Center;FullScreen;diffusecolor,Color.White;draworder,1;diffusealpha,0.8;linear,0.7;diffusealpha,0;);
 	};
+	LoadActor("StageDisplay")..{};
 };
 
 return t
