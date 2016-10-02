@@ -123,7 +123,7 @@ t[#t+1] = LoadActor("grade")..{
 
 --Style text
 t[#t+1] = LoadFont("_itc avant garde std bk 20px")..{
-	InitCommand=cmd(x,SCREEN_CENTER_X-126;y,SCREEN_CENTER_Y-198;visible,GAMESTATE:IsHumanPlayer(PLAYER_1)diffusealpha,1;shadowlength,1);
+	InitCommand=cmd(x,SCREEN_CENTER_X-134;y,SCREEN_CENTER_Y-199;zoom,0.66;visible,GAMESTATE:IsHumanPlayer(PLAYER_1)diffusealpha,1;horizalign,'center';shadowlength,1);
 	OffCommand=cmd(linear,0.25;diffusealpha,0);
 	OnCommand=function(self)
 	local style = GAMESTATE:GetCurrentStyle();
@@ -141,7 +141,7 @@ t[#t+1] = LoadFont("_itc avant garde std bk 20px")..{
 };
 
 t[#t+1] = LoadFont("_itc avant garde std bk 20px")..{
-	InitCommand=cmd(x,SCREEN_CENTER_X+126;y,SCREEN_CENTER_Y-198;visible,GAMESTATE:IsHumanPlayer(PLAYER_2)diffusealpha,1;shadowlength,1);
+	InitCommand=cmd(x,SCREEN_CENTER_X+134;y,SCREEN_CENTER_Y-199;zoom,0.66;visible,GAMESTATE:IsHumanPlayer(PLAYER_2)diffusealpha,1;horizalign,'center';shadowlength,1);
 	OffCommand=cmd(linear,0.25;diffusealpha,0);
 	OnCommand=function(self)
 	local style = GAMESTATE:GetCurrentStyle();
@@ -183,6 +183,19 @@ t[#t+1] = Def.RollingNumbers {
 	end;
 	OffCommand=cmd(sleep,0.067;zoom,0);
 };
+
+--Step Information
+for pn in ivalues(PlayerNumber) do
+	local t2 = Def.StepsDisplay {
+		InitCommand=cmd(Load,"StepsDisplayEvaluation",pn;SetFromGameState,pn;);
+		UpdateNetEvalStatsMessageCommand=function(self,param)
+			if GAMESTATE:IsPlayerEnabled(pn) then
+				self:SetFromSteps(param.Steps)
+			end;
+		end;
+	};
+	t[#t+1] = StandardDecorationFromTable( "StepsDisplay" .. ToEnumShortString(pn), t2 );
+end
 
 --New record definition
 if (STATSMAN:GetCurStageStats():GetPlayerStageStats(PLAYER_1):GetPersonalHighScoreIndex() == 0) then
