@@ -1,4 +1,32 @@
+local sStage = GAMESTATE:GetCurrentStage();
+local tRemap = {
+	Stage_1st		= 1,
+	Stage_2nd		= 2,
+	Stage_3rd		= 3,
+	Stage_4th		= 4,
+	Stage_5th		= 5,
+	Stage_6th		= 6,
+};
+
+if tRemap[sStage] == PREFSMAN:GetPreference("SongsPerPlay") then
+	sStage = "Stage_Final";
+else
+	sStage = sStage;
+end;
+----------------------------------------------------------------------------
+
 local t = Def.ActorFrame {};
+
+t[#t+1] = Def.ActorFrame{
+	Def.Sprite{
+		InitCommand=cmd(x,SCREEN_LEFT+74;y,SCREEN_TOP+40;zoom,0.17);
+		OnCommand=function(self)
+			if GAMESTATE:GetPlayMode() == 'PlayMode_Regular' or GAMESTATE:GetPlayMode() == 'PlayMode_Battle' or GAMESTATE:GetPlayMode() == 'PlayMode_Rave' then
+				self:Load(THEME:GetPathG("", "StageInformation/Stage " .. ToEnumShortString(sStage) ));
+			end;
+		end;
+	};
+};
 
 t[#t+1] = Def.ActorFrame {
 	LoadActor( "_frame" )..{
@@ -51,12 +79,12 @@ t[#t+1] = Def.ActorFrame {
 	--Title
 	LoadFont("_arial black 20px")..{
 		Name="Title";
-		InitCommand=cmd(horizalign,left;diffusecolor,color("#000000");addy,54;addx,-225);
+		InitCommand=cmd(horizalign,left;diffusecolor,color("#000000");addy,54;addx,-225;zoom,0.78);
 	};
 	--Artist
 	LoadFont("_arial black 20px")..{
 		Name="Artist";
-		InitCommand=cmd(horizalign,left;addy,68;addx,-225);
+		InitCommand=cmd(horizalign,left;addy,70;addx,-225;zoom,0.6);
 	};
 
 	--Jacket
@@ -88,7 +116,7 @@ t[#t+1] = Def.ActorFrame {
 				c.SJacket:setsize(100,100);
 			elseif song:HasBackground() then
 				c.SJacket:LoadFromSongBackground(GAMESTATE:GetCurrentSong());
-				c.SJacket:setsize(100,100);
+				c.SJacket:setsize(108,100);
 			else
 				c.SJacket:Load(THEME:GetPathG("", "Common fallback jacket"));
 				c.SJacket:setsize(100,100);

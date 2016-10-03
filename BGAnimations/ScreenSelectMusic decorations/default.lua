@@ -56,7 +56,6 @@ if GAMESTATE:IsPlayerEnabled(PLAYER_1) and GAMESTATE:GetPlayMode() ~= 'PlayMode_
 	};
 
 	t[#t+1] = StandardDecorationFromFileOptional("DifficultyDisplayP1","DifficultyDisplayP1");
-
 	--RadarBG
 	t[#t+1] = Def.ActorFrame {
 		LoadActor("radarbg")..{
@@ -106,6 +105,31 @@ if GAMESTATE:IsPlayerEnabled(PLAYER_2) and GAMESTATE:GetPlayMode() ~= 'PlayMode_
 		}
 	};
 end
+
+t[#t+1] = LoadActor("radarP1")..{
+		InitCommand=cmd(diffusealpha,1;draworder,3;x,SCREEN_LEFT+81;y,SCREEN_CENTER_Y+36;diffuse,Color("Yellow"));
+		CurrentSongChangedMessageCommand=function(self)
+		local song = GAMESTATE:GetCurrentSong()
+			if song then
+				self:zoom(0.5);
+			else
+				self:zoom(0);
+			end;
+		end;
+};
+
+t[#t+1] = LoadActor("radarP2")..{
+		InitCommand=cmd(diffusealpha,1;draworder,3;x,SCREEN_RIGHT-81;y,SCREEN_CENTER_Y+36;diffuse,Color("Yellow"));
+		CurrentSongChangedMessageCommand=function(self)
+		local song = GAMESTATE:GetCurrentSong()
+			if song then
+				self:zoom(0.5);
+			else
+				self:zoom(0);
+			end;
+		end;
+};
+
 
 t[#t+1] = Def.ActorFrame {
 	LoadActor( "../_footer" )..{
