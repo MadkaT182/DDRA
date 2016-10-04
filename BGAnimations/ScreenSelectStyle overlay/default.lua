@@ -14,13 +14,13 @@ t[#t+1] = Def.ActorFrame {
     };
 	--Player BG
     LoadActor("P1Frame") .. {
-        InitCommand=cmd(x,SCREEN_LEFT+142;y,SCREEN_BOTTOM-63;);
+        InitCommand=cmd(x,SCREEN_LEFT+142;y,SCREEN_BOTTOM-52;);
 		OnCommand=cmd();
 		OffCommand=cmd(smooth,0.2;diffusealpha,0;);
     };
 
     LoadActor("P2Frame") .. {
-        InitCommand=cmd(x,SCREEN_RIGHT-142;y,SCREEN_BOTTOM-63;);
+        InitCommand=cmd(x,SCREEN_RIGHT-142;y,SCREEN_BOTTOM-52;);
 		OnCommand=cmd();
 		OffCommand=cmd(smooth,0.2;diffusealpha,0;);
     };

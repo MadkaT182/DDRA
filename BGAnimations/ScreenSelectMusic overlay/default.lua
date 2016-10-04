@@ -163,13 +163,17 @@ t[#t+1] = LoadFont("Bpm")..{
 --Selection cursor
 t[#t+1] = Def.ActorFrame {
 	LoadActor( "cursor" )..{
-		OnCommand=cmd(x,SCREEN_CENTER_X-194;y,SCREEN_CENTER_Y)
+		InitCommand=cmd(x,SCREEN_CENTER_X-194;y,SCREEN_CENTER_Y);
+		OnCommand=cmd(bounce;effectmagnitude,8,0,0;effectclock,'beatnooffset');
+		OffCommand=cmd(sleep,0.2;linear,0;diffusealpha,0);
 	}
 };
 
 t[#t+1] = Def.ActorFrame {
 	LoadActor( "cursor" )..{
-		OnCommand=cmd(x,SCREEN_CENTER_X+194;y,SCREEN_CENTER_Y;zoomx,-1)
+		InitCommand=cmd(x,SCREEN_CENTER_X+194;y,SCREEN_CENTER_Y;zoomx,-1);
+		OnCommand=cmd(bounce;effectmagnitude,-8,0,0;effectclock,'beatnooffset');
+		OffCommand=cmd(sleep,0.2;linear,0;diffusealpha,0);
 	}
 };
 
