@@ -59,9 +59,11 @@ if GAMESTATE:IsPlayerEnabled(PLAYER_1) and GAMESTATE:GetPlayMode() ~= 'PlayMode_
 	--RadarBG
 	t[#t+1] = Def.ActorFrame {
 		LoadActor("radarbg")..{
-			OnCommand=cmd(x,SCREEN_LEFT+81;y,SCREEN_CENTER_Y+36);
-			OffCommand=cmd(diffusealpha,1);
-		}
+			OnCommand=cmd(x,SCREEN_LEFT+81;y,SCREEN_CENTER_Y+36;zoom,0;linear,0.5;zoom,1);
+		};
+		LoadActor("radarlabels")..{
+			OnCommand=cmd(x,SCREEN_LEFT+81;y,SCREEN_CENTER_Y+20);
+		};
 	};
 end
 
@@ -100,9 +102,11 @@ if GAMESTATE:IsPlayerEnabled(PLAYER_2) and GAMESTATE:GetPlayMode() ~= 'PlayMode_
 	--RadarBG
 	t[#t+1] = Def.ActorFrame {
 		LoadActor("radarbg")..{
-			OnCommand=cmd(x,SCREEN_RIGHT-81;y,SCREEN_CENTER_Y+36);
-			OffCommand=cmd(diffusealpha,1);
-		}
+			OnCommand=cmd(x,SCREEN_RIGHT-81;y,SCREEN_CENTER_Y+36;zoom,0;linear,0.5;zoom,1);
+		};
+		LoadActor("radarlabels")..{
+			OnCommand=cmd(x,SCREEN_RIGHT-81;y,SCREEN_CENTER_Y+20);
+		};
 	};
 end
 
