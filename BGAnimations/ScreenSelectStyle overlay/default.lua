@@ -77,4 +77,9 @@ t[#t+1] = Def.ActorFrame {
 	};
 };
 
+t[#t+1] = LoadActor(THEME:GetPathS("","_swoosh_in"))..{
+  OnCommand=cmd(sleep,0.4;queuecommand,"Play");
+  PlayCommand=cmd(play);
+};
+
 return t;
