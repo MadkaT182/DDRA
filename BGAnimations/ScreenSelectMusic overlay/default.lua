@@ -19,10 +19,10 @@ local t = Def.ActorFrame {};
 
 t[#t+1] = Def.ActorFrame{
 	Def.Sprite{
-		InitCommand=cmd(x,SCREEN_LEFT+74;y,SCREEN_TOP+40;zoom,0.17);
+		InitCommand=cmd(x,SCREEN_LEFT+81;y,SCREEN_TOP+40;);
 		OnCommand=function(self)
 			if GAMESTATE:GetPlayMode() == 'PlayMode_Regular' or GAMESTATE:GetPlayMode() == 'PlayMode_Battle' or GAMESTATE:GetPlayMode() == 'PlayMode_Rave' then
-				self:Load(THEME:GetPathG("", "StageInformation/Stage " .. ToEnumShortString(sStage) ));
+				self:Load(THEME:GetPathG("", "SelMusStageInfo/Stage " .. ToEnumShortString(sStage) ));
 			end;
 		end;
 	};
