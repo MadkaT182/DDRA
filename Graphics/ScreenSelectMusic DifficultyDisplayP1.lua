@@ -20,6 +20,41 @@ local t = Def.ActorFrame {
 					self:visible(false);
 				end;
 			end;
+			LoadActor(THEME:GetPathG("", "cursorglow"))..{
+				OnCommand=cmd(queuecommand,"Animate");
+				AnimateCommand=cmd(linear,0.1;diffusealpha,1;linear,0.6;diffusealpha,0;queuecommand,"Animate");
+				CurrentStepsP1ChangedMessageCommand=cmd(playcommand,"PositionCheck");
+				CurrentStepsP2ChangedMessageCommand=cmd(playcommand,"PositionCheck");
+				PositionCheckCommand=function(self)
+					if getenv("wheelstop") == 1 then
+						if #GAMESTATE:GetHumanPlayers() > 1 then
+							local p1Steps = "";
+							local p2Steps = "";
+							if GAMESTATE:GetCurrentSong() then
+								p1Steps = GAMESTATE:GetCurrentSteps(PLAYER_1);
+								p2Steps = GAMESTATE:GetCurrentSteps(PLAYER_2);
+							elseif GAMESTATE:GetCurrentCourse() then
+								p1Steps = GAMESTATE:GetCurrentTrail(PLAYER_1);
+								p2Steps = GAMESTATE:GetCurrentTrail(PLAYER_2);
+							end;
+							if p1Steps and p2Steps then
+								if p1Steps:GetDifficulty() == 'Difficulty_Edit' and p2Steps:GetDifficulty() == 'Difficulty_Edit' then
+									if p1Steps:GetDescription() == p2Steps:GetDescription() then
+										self:y(11);
+									else self:y(0);
+									end;
+								else
+									if p1Steps:GetDifficulty() == p2Steps:GetDifficulty() then
+										self:y(11);
+									else self:y(0);
+									end;
+								end;
+							end;
+						end;
+					else self:y(0);
+					end;
+				end;
+			};
 			LoadActor(THEME:GetPathG("_StepsDisplayListRow cursor", "p1"))..{
 				CurrentStepsP1ChangedMessageCommand=cmd(playcommand,"PositionCheck");
 				CurrentStepsP2ChangedMessageCommand=cmd(playcommand,"PositionCheck");
@@ -64,4 +99,3 @@ local t = Def.ActorFrame {
 };
 
 return t;
-

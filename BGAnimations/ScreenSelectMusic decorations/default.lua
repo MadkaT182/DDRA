@@ -106,8 +106,9 @@ if GAMESTATE:IsPlayerEnabled(PLAYER_2) and GAMESTATE:GetPlayMode() ~= 'PlayMode_
 	};
 end
 
+if GAMESTATE:IsPlayerEnabled(PLAYER_1) then
 t[#t+1] = LoadActor("radarP1")..{
-		InitCommand=cmd(diffusealpha,1;draworder,3;x,SCREEN_LEFT+81;y,SCREEN_CENTER_Y+36;diffuse,Color("Yellow"));
+		InitCommand=cmd(diffusealpha,1;draworder,0;x,SCREEN_LEFT+81;y,SCREEN_CENTER_Y+36);
 		CurrentSongChangedMessageCommand=function(self)
 		local song = GAMESTATE:GetCurrentSong()
 			if song then
@@ -117,9 +118,16 @@ t[#t+1] = LoadActor("radarP1")..{
 			end;
 		end;
 };
+end;
 
+t[#t+1] = create_ddr_groove_radar("P1_radar", SCREEN_LEFT+81, SCREEN_CENTER_Y+36,
+	PLAYER_1, 40, color("1,1,0,1"),
+	{ColorGR.Yellow, ColorGR.Yellow, ColorGR.Yellow, ColorGR.Yellow, ColorGR.Yellow},
+	"accelerate", .25)
+
+if GAMESTATE:IsPlayerEnabled(PLAYER_2) then
 t[#t+1] = LoadActor("radarP2")..{
-		InitCommand=cmd(diffusealpha,1;draworder,3;x,SCREEN_RIGHT-81;y,SCREEN_CENTER_Y+36;diffuse,Color("Yellow"));
+		InitCommand=cmd(diffusealpha,1;draworder,0;x,SCREEN_RIGHT-81;y,SCREEN_CENTER_Y+36);
 		CurrentSongChangedMessageCommand=function(self)
 		local song = GAMESTATE:GetCurrentSong()
 			if song then
@@ -129,6 +137,12 @@ t[#t+1] = LoadActor("radarP2")..{
 			end;
 		end;
 };
+end;
+
+t[#t+1] = create_ddr_groove_radar("P2_radar", SCREEN_RIGHT-81, SCREEN_CENTER_Y+36,
+	PLAYER_2, 40, color("1,1,0,1"),
+	{ColorGR.Yellow, ColorGR.Yellow, ColorGR.Yellow, ColorGR.Yellow, ColorGR.Yellow},
+	"accelerate", .25)
 
 
 t[#t+1] = Def.ActorFrame {

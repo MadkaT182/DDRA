@@ -23,14 +23,14 @@ t[#t+1] = Def.ActorFrame{
 
 	LoadFont("_itc machine std 20px")..{
 		Name="tmeter";
-		InitCommand=cmd(horizalign,center;diffuse,color("#000000");addx,-18;addy,-7);
+		InitCommand=cmd(horizalign,center;diffuse,Color("White");strokecolor,Color("Black");addx,-19;addy,-6;zoom,0.9);
 	};
 
 	LoadFont("_Shared2")..{
 		Name="description";
 		InitCommand=cmd(horizalign,right;zoom,0.5;maxwidth,160);
 	};
-	
+
 	SetCommand=function(self, param)
 		local difftable = self:GetChild('difftable');
 		local tmeter = self:GetChild('tmeter');
