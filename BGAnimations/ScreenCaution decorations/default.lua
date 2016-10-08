@@ -1,9 +1,5 @@
 local t = Def.ActorFrame {};
 
---Bg (placeholder)
-t[#t+1] = LoadActor("../_bluebg")..{};
-
-
 --BGMiddle
 t[#t+1] = LoadActor("bgmid")..{
 	OnCommand=cmd(diffusealpha,0;Center;zoomy,0;sleep,0.8;diffusealpha,1;linear,0.066;zoom,1;linear,0.067;diffusealpha,0);
