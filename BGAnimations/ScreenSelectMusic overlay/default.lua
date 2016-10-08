@@ -42,7 +42,13 @@ t[#t+1] = Def.ActorFrame {
 
 t[#t+1] = Def.ActorFrame {
 	LoadActor( "scan" )..{
-		OnCommand=cmd(x,SCREEN_CENTER_X-230;y,SCREEN_TOP+63;linear,1;addx,300;sleep,1;ztest,true;queuecommand,"On")
+		OnCommand=cmd(x,SCREEN_CENTER_X-230;y,SCREEN_TOP+63;linear,1.5;addx,300;sleep,1;ztest,true;queuecommand,"On")
+	}
+};
+
+t[#t+1] = Def.ActorFrame {
+	LoadActor( "scan" )..{
+		OnCommand=cmd(x,SCREEN_CENTER_X-230;y,SCREEN_TOP+63;linear,1.5;addx,300;sleep,1;ztest,true;queuecommand,"On")
 	}
 };
 
@@ -54,8 +60,9 @@ t[#t+1] = Def.ActorFrame {
 };
 
 t[#t+1] = Def.ActorFrame {
-	LoadActor( "_meter" )..{
-		OnCommand=cmd(x,SCREEN_CENTER_X+14;y,SCREEN_TOP+97)
+	Def.Sprite{
+		Texture="_meter 2x2 (doubleres).png";
+		InitCommand=cmd(x,SCREEN_CENTER_X+14;y,SCREEN_TOP+97;effectclock,'beatnooffset';SetAllStateDelays,1);
 	}
 };
 
