@@ -38,23 +38,6 @@ t[#t+1] = Def.ActorFrame {
 		OffCommand=cmd(smooth,0.3;zoom,0;diffusealpha,0;);
 	};
 };
-
-t[#t+1] = Def.ActorFrame {
-	LoadActor("Info")..{
-		InitCommand=cmd(diffusealpha,0;x,426;y,-95;zoomx,1.74;zoomy,1.8);
-		OnCommand=function(self)
-			if GAMESTATE:GetNumPlayersEnabled() == 2 then
-				self:sleep(0.7):zoomy(0):diffusealpha(0):
-				linear(0.3):diffusealpha(1):zoomy(1.8)
-			else
-				self:diffusealpha(0)
-			end;
-		end;
-		GainFocusCommand=cmd(stoptweening;sleep,0.1;linear,0.2;zoomy,1.8;diffusealpha,1);
-		LoseFocusCommand=cmd(stoptweening;linear,0.2;zoomy,0);
-		OffCommand=cmd(linear,0.3;zoom,0;diffusealpha,0;);
-	};
-};
 t[#t+1] = Def.ActorFrame {
 	LoadActor("Title")..{
 		InitCommand=cmd(x,205;y,-220;zoom,1.8);

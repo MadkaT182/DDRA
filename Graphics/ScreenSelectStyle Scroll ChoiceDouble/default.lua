@@ -22,15 +22,6 @@ t[#t+1] = Def.ActorFrame {
 	};
 };
 t[#t+1] = Def.ActorFrame {
-    LoadActor("Info") .. {
-		InitCommand=cmd(diffusealpha,0;x,370;y,-150;zoom,2);
-	  OnCommand=cmd(linear,0.3;zoomy,2;diffusealpha,0);
-		GainFocusCommand=cmd(stoptweening;zoomy,0;sleep,0.1;linear,0.2;zoomy,2;diffusealpha,1);
-		LoseFocusCommand=cmd(stoptweening;linear,0.2;zoomy,0);
-		OffCommand=cmd(linear,0.3;zoom,0;diffusealpha,0;);
-	};
-};
-t[#t+1] = Def.ActorFrame {
 	LoadActor("Title")..{
 		InitCommand=cmd(x,205;y,-220;zoom,1.5);
 		OnCommand=function(self)
