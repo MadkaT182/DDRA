@@ -1,3 +1,7 @@
+ColorGR = {
+	Yellow		=	color("1,1,0,0.75"),
+}
+
 GameColor = {
 	Difficulty = {
 		Beginner	= color("#1ed6ff"),
