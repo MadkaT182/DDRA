@@ -2,6 +2,7 @@ return Def.ActorFrame {
 	InitCommand=function(self)
 		self:x(SCREEN_CENTER_X+288);
 		self:y(SCREEN_TOP+37);
+		self:visible(PREFSMAN:GetPreference("MenuTimer"));
 	end;
 	LoadActor( "timerbg" )..{
 		OffCommand=cmd(linear,0.167;zoom,0);
