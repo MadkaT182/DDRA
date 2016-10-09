@@ -23,7 +23,7 @@ t[#t+1] = Def.ActorFrame {
 };
 t[#t+1] = Def.ActorFrame {
 	LoadActor("Title")..{
-		InitCommand=cmd(x,205;y,-220;zoom,1.5);
+		InitCommand=cmd(x,205;y,-220;zoom,1.8);
 		OnCommand=function(self)
 			self:diffusealpha(0):linear(0.2):
 			zoomy(1.8):diffusealpha(1):playcommand("Animate")

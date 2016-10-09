@@ -15,7 +15,7 @@ t[#t+1] = Def.ActorFrame {
 
 t[#t+1] = Def.ActorFrame {
 	LoadActor( "sidebg" )..{
-		InitCommand=cmd(x,SCREEN_LEFT+124;y,SCREEN_BOTTOM-215;rotationy,180);
+		InitCommand=cmd(x,SCREEN_LEFT+124;y,SCREEN_BOTTOM-215;zoomx,-1);
 	}
 };
 
