@@ -110,12 +110,12 @@ t[#t+1] = Def.ActorFrame {
 			else
 				title = song:GetDisplayFullTitle();
 			end;
-			c.Title:maxwidth(300);
+			c.Title:maxwidth(390);
 			c.Title:settext(title);
 
 			local artist;
 			artist = song:GetDisplayArtist();
-			c.Artist:maxwidth(300);
+			c.Artist:maxwidth(500);
 			c.Artist:settext(artist);
 
 			if song:HasJacket() then
