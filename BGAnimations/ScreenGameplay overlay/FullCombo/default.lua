@@ -111,8 +111,7 @@ t[#t+1] = Def.ActorFrame{
 				self:y(SCREEN_CENTER_Y+152);
 				self:addy(80);
 			else
-				self:y(SCREEN_CENTER_Y-160);
-				self:addy(-80);
+				self:y(SCREEN_CENTER_Y-161);
 			end;
 			self:diffusealpha(1);
 		end;
@@ -121,11 +120,12 @@ t[#t+1] = Def.ActorFrame{
 			InitCommand=cmd(blend,"BlendMode_Add";diffusealpha,1);
 			OffCommand=function(self)
 				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+					self:sleep(.3);
 					self:diffusealpha(1);
-					self:addx(-48);
+					self:addx(-32);
 					self:rotationz(-25);
 					self:zoom(2);
-					self:linear(0.5);
+					self:linear(0.42);
 					self:zoom(0.3);
 					self:rotationz(65);
 					self:linear(0.25);
@@ -134,16 +134,17 @@ t[#t+1] = Def.ActorFrame{
 				end;
 			end;
 		};
-		-- Right - up in single
+		-- -- Right - up in single
 		LoadActor("Star") .. {
 			InitCommand=cmd(blend,"BlendMode_Add";diffusealpha,1);
 			OffCommand=function(self)
 				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+					self:sleep(.3);
 					self:diffusealpha(1);
-					self:addx(48);
+					self:addx(32);
 					self:rotationz(35);
 					self:zoom(2);
-					self:linear(0.5);
+					self:linear(0.42);
 					self:zoom(0.3);
 					self:rotationz(-55);
 					self:linear(0.25);
@@ -157,11 +158,12 @@ t[#t+1] = Def.ActorFrame{
 			InitCommand=cmd(blend,"BlendMode_Add";diffusealpha,1);
 			OffCommand=function(self)
 				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+					self:sleep(.3);
 					self:diffusealpha(1);
-					self:addx(-144);
+					self:addx(-96);
 					self:rotationz(-60);
 					self:zoom(2);
-					self:linear(0.5);
+					self:linear(0.42);
 					self:zoom(0.3);
 					self:rotationz(30);
 					self:linear(0.25);
@@ -175,11 +177,12 @@ t[#t+1] = Def.ActorFrame{
 			InitCommand=cmd(blend,"BlendMode_Add";diffusealpha,1);
 			OffCommand=function(self)
 				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+					self:sleep(.3);
 					self:diffusealpha(1);
-					self:addx(144);
+					self:addx(96);
 					self:rotationz(90);
 					self:zoom(2);
-					self:linear(0.5);
+					self:linear(0.42);
 					self:zoom(0.3);
 					self:rotationz(0);
 					self:linear(0.25);
@@ -193,11 +196,12 @@ t[#t+1] = Def.ActorFrame{
 			InitCommand=cmd(blend,"BlendMode_Add";diffusealpha,1);
 			OffCommand=function(self)
 				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+					self:sleep(.3);
 					self:diffusealpha(1);
-					self:addx(-240);
+					self:addx(-160);
 					self:rotationz(-15);
 					self:zoom(2);
-					self:linear(0.5);
+					self:linear(0.42);
 					self:zoom(0.3);
 					self:rotationz(75);
 					self:linear(0.25);
@@ -212,11 +216,12 @@ t[#t+1] = Def.ActorFrame{
 			InitCommand=cmd(blend,"BlendMode_Add";diffusealpha,1);
 			OffCommand=function(self)
 				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+					self:sleep(.3);
 					self:diffusealpha(1);
-					self:addx(240);
+					self:addx(160);
 					self:rotationz(90);
 					self:zoom(2);
-					self:linear(0.5);
+					self:linear(0.42);
 					self:zoom(0.3);
 					self:rotationz(0);
 					self:linear(0.25);
@@ -231,11 +236,12 @@ t[#t+1] = Def.ActorFrame{
 			InitCommand=cmd(blend,"BlendMode_Add";diffusealpha,1);
 			OffCommand=function(self)
 				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+					self:sleep(.3);
 					self:diffusealpha(1);
-					self:addx(-336);
+					self:addx(-224);
 					self:rotationz(-60);
 					self:zoom(2);
-					self:linear(0.5);
+					self:linear(0.42);
 					self:zoom(0.3);
 					self:rotationz(30);
 					self:linear(0.25);
@@ -250,11 +256,12 @@ t[#t+1] = Def.ActorFrame{
 			InitCommand=cmd(blend,"BlendMode_Add";diffusealpha,1);
 			OffCommand=function(self)
 				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+					self:sleep(.3);
 					self:diffusealpha(1);
-					self:addx(336);
+					self:addx(224);
 					self:rotationz(35);
 					self:zoom(2);
-					self:linear(0.5);
+					self:linear(0.42);
 					self:zoom(0.3);
 					self:rotationz(-55);
 					self:linear(0.25);
@@ -308,7 +315,7 @@ t[#t+1] = Def.ActorFrame{
 			if GAMESTATE:PlayerIsUsingModifier(pn,'reverse') then
 				self:y(SCREEN_CENTER_Y+152);
 			else
-				self:y(SCREEN_CENTER_Y-160);
+				self:y(SCREEN_CENTER_Y-161);
 			end;
 		end;
 		-- Center
