@@ -89,7 +89,7 @@ end;
 -- Sound
 t[#t+1] = LoadActor("Combo_Splash") .. {
 	OffCommand=function(self)
-		if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+		if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 			self:play();
 		end;
 	end;
@@ -99,7 +99,7 @@ t[#t+1] = LoadActor("Combo_Splash") .. {
 t[#t+1] = Def.ActorFrame{
 	InitCommand=cmd(x,GetPosition(pn);diffusealpha,0);
 	OffCommand = function(self)
-		if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+		if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 			self:diffuse(GetFullComboEffectColor(pss));
 		end;
 	end;
@@ -119,7 +119,7 @@ t[#t+1] = Def.ActorFrame{
 		LoadActor("Star") .. {
 			InitCommand=cmd(blend,"BlendMode_Add";diffusealpha,1);
 			OffCommand=function(self)
-				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 					self:sleep(.3);
 					self:diffusealpha(1);
 					self:addx(-32);
@@ -138,7 +138,7 @@ t[#t+1] = Def.ActorFrame{
 		LoadActor("Star") .. {
 			InitCommand=cmd(blend,"BlendMode_Add";diffusealpha,1);
 			OffCommand=function(self)
-				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 					self:sleep(.3);
 					self:diffusealpha(1);
 					self:addx(32);
@@ -157,7 +157,7 @@ t[#t+1] = Def.ActorFrame{
 		LoadActor("Star") .. {
 			InitCommand=cmd(blend,"BlendMode_Add";diffusealpha,1);
 			OffCommand=function(self)
-				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 					self:sleep(.3);
 					self:diffusealpha(1);
 					self:addx(-96);
@@ -176,7 +176,7 @@ t[#t+1] = Def.ActorFrame{
 		LoadActor("Star") .. {
 			InitCommand=cmd(blend,"BlendMode_Add";diffusealpha,1);
 			OffCommand=function(self)
-				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 					self:sleep(.3);
 					self:diffusealpha(1);
 					self:addx(96);
@@ -195,7 +195,7 @@ t[#t+1] = Def.ActorFrame{
 		LoadActor("Star") .. {
 			InitCommand=cmd(blend,"BlendMode_Add";diffusealpha,1);
 			OffCommand=function(self)
-				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 					self:sleep(.3);
 					self:diffusealpha(1);
 					self:addx(-160);
@@ -215,7 +215,7 @@ t[#t+1] = Def.ActorFrame{
 		LoadActor("Star") .. {
 			InitCommand=cmd(blend,"BlendMode_Add";diffusealpha,1);
 			OffCommand=function(self)
-				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 					self:sleep(.3);
 					self:diffusealpha(1);
 					self:addx(160);
@@ -235,7 +235,7 @@ t[#t+1] = Def.ActorFrame{
 		LoadActor("Star") .. {
 			InitCommand=cmd(blend,"BlendMode_Add";diffusealpha,1);
 			OffCommand=function(self)
-				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 					self:sleep(.3);
 					self:diffusealpha(1);
 					self:addx(-224);
@@ -255,7 +255,7 @@ t[#t+1] = Def.ActorFrame{
 		LoadActor("Star") .. {
 			InitCommand=cmd(blend,"BlendMode_Add";diffusealpha,1);
 			OffCommand=function(self)
-				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 					self:sleep(.3);
 					self:diffusealpha(1);
 					self:addx(224);
@@ -277,7 +277,7 @@ t[#t+1] = Def.ActorFrame{
 	LoadActor("Down") .. {
 		InitCommand=cmd(vertalign,bottom);
 		OffCommand=function(self)
-			if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+			if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 				if GAMESTATE:PlayerIsUsingModifier(pn,'reverse') then
 					self:y(SCREEN_BOTTOM);
 					self:diffusealpha(0.5);
@@ -321,7 +321,7 @@ t[#t+1] = Def.ActorFrame{
 		-- Center
 		LoadActor("Slim") .. {
 			OffCommand=function(self)
-				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 					self:diffusealpha(0.5);
 					self:zoomx(0);
 					self:zoomy(0.5);
@@ -340,7 +340,7 @@ t[#t+1] = Def.ActorFrame{
 		LoadActor("Slim") .. {
 			InitCommand=cmd(addx,-64);
 			OffCommand=function(self)
-				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 					self:diffusealpha(0.5);
 					self:zoomx(0);
 					self:zoomy(0.5);
@@ -359,7 +359,7 @@ t[#t+1] = Def.ActorFrame{
 		LoadActor("Slim") .. {
 			InitCommand=cmd(addx,64);
 			OffCommand=function(self)
-				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 					self:diffusealpha(0.5);
 					self:zoomx(0);
 					self:zoomy(0.5);
@@ -378,7 +378,7 @@ t[#t+1] = Def.ActorFrame{
 		LoadActor("Slim") .. {
 			InitCommand=cmd(addx,-128);
 			OffCommand=function(self)
-				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 					self:diffusealpha(0.5);
 					self:zoomx(0);
 					self:zoomy(0.5);
@@ -398,7 +398,7 @@ t[#t+1] = Def.ActorFrame{
 		LoadActor("Slim") .. {
 			InitCommand=cmd(addx,128);
 			OffCommand=function(self)
-				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 					self:diffusealpha(0.5);
 					self:zoomx(0);
 					self:zoomy(0.5);
@@ -418,7 +418,7 @@ t[#t+1] = Def.ActorFrame{
 		LoadActor("Slim") .. {
 			InitCommand=cmd(addx,-192);
 			OffCommand=function(self)
-				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 					self:diffusealpha(0.5);
 					self:zoomx(0);
 					self:zoomy(0.5);
@@ -438,7 +438,7 @@ t[#t+1] = Def.ActorFrame{
 		LoadActor("Slim") .. {
 			InitCommand=cmd(addx,192);
 			OffCommand=function(self)
-				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+				if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 					self:diffusealpha(0.5);
 					self:zoomx(0);
 					self:zoomy(0.5);
@@ -460,7 +460,7 @@ t[#t+1] = Def.ActorFrame{
 	LoadActor("Star") .. {
 		InitCommand=cmd(blend,Blend.Add);
 		OffCommand=function(self)
-			if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+			if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 				if GAMESTATE:PlayerIsUsingModifier(pn,'reverse') then
 					self:y(SCREEN_CENTER_Y+152);
 					self:diffusealpha(1);
@@ -494,7 +494,7 @@ t[#t+1] = Def.ActorFrame{
 	LoadActor("Down") .. {
 		InitCommand=cmd(vertalign,bottom);
 		OffCommand=function(self)
-			if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+			if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 				if GAMESTATE:PlayerIsUsingModifier(pn,'reverse') then
 					self:y(SCREEN_TOP);
 					self:diffusealpha(0);
@@ -526,7 +526,7 @@ t[#t+1] = Def.ActorFrame{
 	LoadActor("Gradation") .. {
 		InitCommand=cmd(vertalign,top;horizalign,right);
 		OffCommand=function(self)
-			if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+			if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 				if GAMESTATE:PlayerIsUsingModifier(pn,'reverse') then
 					self:y(SCREEN_BOTTOM);
 					self:addx(46);
@@ -574,7 +574,7 @@ t[#t+1] = Def.ActorFrame{
 	LoadActor("Gradation") .. {
 		InitCommand=cmd(vertalign,top;horizalign,right);
 		OffCommand=function(self)
-			if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+			if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 				if GAMESTATE:PlayerIsUsingModifier(pn,'reverse') then
 					self:y(SCREEN_BOTTOM);
 					self:addx(-46);
@@ -622,7 +622,7 @@ t[#t+1] = Def.ActorFrame{
 	LoadActor("Gradation") .. {
 		InitCommand=cmd(horizalign,right);
 		OffCommand=function(self)
-			if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+			if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 				self:y(SCREEN_CENTER_Y);
 				self:addx(46);
 				self:diffusealpha(0);
@@ -646,7 +646,7 @@ t[#t+1] = Def.ActorFrame{
 	LoadActor("Gradation") .. {
 		InitCommand=cmd(horizalign,right);
 		OffCommand=function(self)
-			if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+			if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 				self:y(SCREEN_CENTER_Y);
 				self:addx(-46);
 				self:diffusealpha(0);
@@ -678,7 +678,7 @@ t[#t+1] = Def.ActorFrame{
 			end;
 		end;
 		OffCommand=function(self)
-			if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+			if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 				self:sleep(0.65);
 				self:diffusealpha(1);
 				self:zoomx(2);
@@ -708,7 +708,7 @@ t[#t+1] = Def.ActorFrame{
 			end;
 		end;
 		OffCommand=function(self)
-			if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+			if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 				self:diffuse(color("#ffffff"));
 				self:sleep(0.65);
 				self:diffusealpha(0.8);
@@ -739,7 +739,7 @@ t[#t+1] = Def.ActorFrame{
 			end;
 		end;
 		OffCommand=function(self)
-			if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+			if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 				self:diffuse(GetFullComboEffectColor2(pss));
 				self:sleep(0.65);
 				self:zoomx(2);
@@ -769,7 +769,7 @@ t[#t+1] = Def.ActorFrame{
 			end;
 		end;
 		OffCommand=function(self)
-			if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+			if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 				self:diffuse(GetFullComboEffectColor2(pss));
 				self:sleep(0.65);
 				self:zoomx(4);
@@ -794,7 +794,7 @@ t[#t+1] = Def.ActorFrame{
 t[#t+1] = LoadActor("SStar") .. {
 	InitCommand=cmd(x,GetPosition(pn);diffusealpha,0;blend,Blend.Add);
 	OffCommand=function(self)
-		if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') then
+		if pss:FullCombo() or pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 			if GAMESTATE:PlayerIsUsingModifier(pn,'reverse') then
 				self:y(SCREEN_CENTER_Y+152);
 				self:diffusealpha(0.95);
@@ -838,13 +838,13 @@ t[#t+1] = Def.ActorFrame{
 	-- Marvelous FullCombo
 	Def.Sprite{
 		OffCommand=function(self)
-			if pss:FullComboOfScore('TapNoteScore_W1') then
+			if pss:FullComboOfScore('TapNoteScore_W1') and not STATSMAN:GetCurStageStats():AllFailed() then
 				self:Load(THEME:GetPathB("ScreenGameplay","overlay/FullCombo/FCM"));
-			elseif pss:FullComboOfScore('TapNoteScore_W2') then
+			elseif pss:FullComboOfScore('TapNoteScore_W2') and not STATSMAN:GetCurStageStats():AllFailed() then
 				self:Load(THEME:GetPathB("ScreenGameplay","overlay/FullCombo/FCP"));
-			elseif pss:FullComboOfScore('TapNoteScore_W3') then
+			elseif pss:FullComboOfScore('TapNoteScore_W3') and not STATSMAN:GetCurStageStats():AllFailed() then
 				self:Load(THEME:GetPathB("ScreenGameplay","overlay/FullCombo/FCGr"));
-			elseif pss:FullComboOfScore('TapNoteScore_W4') then
+			elseif pss:FullComboOfScore('TapNoteScore_W4') and not STATSMAN:GetCurStageStats():AllFailed() then
 				self:Load(THEME:GetPathB("ScreenGameplay","overlay/FullCombo/FCGo"));
 			else
 				self:visible(false);
