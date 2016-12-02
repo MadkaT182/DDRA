@@ -152,12 +152,12 @@ local t = Def.ActorFrame {
 			cf.NumberW1:visible(false);
 			cf.NumberW2:visible(false);
 			cf.NumberW3:visible(false);
-			cf.NumberNormal:visible(true);
+			cf.NumberNormal:visible(false);
 
 			cf.LabelW1:visible(false);
 			cf.LabelW2:visible(false);
 			cf.LabelW3:visible(false);
-			cf.LabelNormal:visible(true);
+			cf.LabelNormal:visible(false);
 		end
 		-- Pulse
 		Pulse( cf.NumberW1, param );
