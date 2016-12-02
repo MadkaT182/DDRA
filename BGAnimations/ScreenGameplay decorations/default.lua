@@ -1,8 +1,8 @@
 local t = Def.ActorFrame{}
 
-t[#t+1] = StandardDecorationFromFileOptional("StageFrame","StageFrame");
-
 t[#t+1] = LoadActor("../ScreenGameplay Danger");
+
+t[#t+1] = StandardDecorationFromFileOptional("StageFrame","StageFrame");
 
 t[#t+1] = StandardDecorationFromFile("SongInformation","SongInformation");
 
