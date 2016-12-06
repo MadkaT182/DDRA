@@ -19,6 +19,7 @@ local t = Def.ActorFrame {
 				self:settextf("EXTRA");
 			elseif GAMESTATE:IsExtraStage2() then
 				self:settextf("ENCORE EXTRA");
+				self:zoomtowidth(80);
 			else
 				local thed_stage= thified_curstage_index(false)
 				self:settextf(thed_stage)
