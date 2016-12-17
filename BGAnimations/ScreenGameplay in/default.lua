@@ -95,6 +95,8 @@ if not GAMESTATE:IsDemonstration() then
 						self:diffusealpha(0);
 				end;
 				--self:sleep(3.167);
+				--self:sleep(2.833);
+				self:sleep(1.41);
 				self:linear(0.8);
 				self:zoom(1.543);
 				self:diffusealpha(0);
