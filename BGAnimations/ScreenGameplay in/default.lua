@@ -9,16 +9,31 @@ if not GAMESTATE:IsDemonstration() then
 		};
 	};
 
+--BGVideo
+	t[#t+1] = Def.ActorFrame {
+		LoadActor("../_shared_background")..{
+			OnCommand=cmd(linear,0.083;diffusealpha,0);
+		};
+	};
+
+--Scanlines
+	t[#t+1] = Def.ActorFrame {
+		LoadActor("../ScreenStageInformation decorations/scanlines")..{
+			InitCommand=cmd(Center;diffusealpha,0.5);
+			OnCommand=cmd(zoom,0.75;linear,0.5;diffusealpha,0);
+		};
+	};
+
 	--BlackBg
 	t[#t+1] = Def.ActorFrame {
 		LoadActor("../ScreenStageInformation decorations/topbg") .. {
-			OnCommand=cmd(zoom,0.75;x,SCREEN_CENTER_X;y,SCREEN_TOP+84;linear,0.083;zoom,1;x,SCREEN_CENTER_X;y,SCREEN_TOP-224);
+			OnCommand=cmd(zoom,0.75;x,SCREEN_CENTER_X;y,SCREEN_TOP+84;linear,0.483;zoom,1;x,SCREEN_CENTER_X;y,SCREEN_TOP-224);
 		};
 	};
 
 	t[#t+1] = Def.ActorFrame {
 		LoadActor("../ScreenStageInformation decorations/bottombg") .. {
-			OnCommand=cmd(zoom,0.75;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-71;linear,0.083;zoom,1;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM+194);
+			OnCommand=cmd(zoom,0.75;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-71;linear,0.483;zoom,1;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM+194);
 		};
 	};
 
