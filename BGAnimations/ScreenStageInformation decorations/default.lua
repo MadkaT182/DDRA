@@ -19,6 +19,8 @@ else
 end;
 
 local t = Def.ActorFrame{}
+local song = GAMESTATE:GetCurrentSong();
+
 --Sound
 t[#t+1] = Def.ActorFrame {
 	LoadActor("../_swoosh") .. {
@@ -131,7 +133,33 @@ t[#t+1] = Def.ActorFrame {
 	Def.Quad{
 		OnCommand=cmd(Center;FullScreen;diffusecolor,Color.White;draworder,1;diffusealpha,0.8;linear,0.7;diffusealpha,0;);
 	};
-	LoadActor("StageDisplay")..{};
 };
+
+if GAMESTATE:IsExtraStage() or GAMESTATE:IsExtraStage2() then
+	local STitle = song:GetDisplayFullTitle();
+	--Extra Savior
+	if STitle == "宇宙(ソラ)への片道切符" or STitle == "Electric Dance System Music" or STitle == "TECH-NOID" or STitle == "Sora e no katamichi kippu" or STitle == "Cytokinesis" or STitle == "S!ck" or STitle == "Illegal Function Call" or STitle == "STERLING SILVER" or STitle == "STERLING SILVER (U1 overground mix)" or STitle == "Far east nightbird" or STitle == "Far east nightbird kors k Remix -DDR edit ver-" or STitle == "Angelic Jelly" or STitle == "Grand Chariot" or STitle == "Sephirot" or STitle == "StrayedCatz" or STitle == "ZEPHYRANTHES" or STitle == "Triple Counter" then
+		t[#t+1] = Def.ActorFrame {
+			LoadActor("Savior")..{};
+		};
+	else
+		--Extra Exclusive
+		if STitle == "New Century" or STitle == "RISING FIRE HAWK" or STitle == "Astrogazer" or STitle == "Come to Life" or STitle == "Emera" then
+			t[#t+1] = Def.ActorFrame {
+				LoadActor("Exclusive")..{};
+			};
+		else
+			--Normal stage indicator
+			t[#t+1] = Def.ActorFrame {
+				LoadActor("StageDisplay")..{};
+			};
+		end
+	end
+else
+	--Normal stage indicator
+	t[#t+1] = Def.ActorFrame {
+		LoadActor("StageDisplay")..{};
+	};
+end
 
 return t
