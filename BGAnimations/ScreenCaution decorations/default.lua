@@ -7,7 +7,7 @@ t[#t+1] = LoadActor("bgmid")..{
 
 --Middle
 t[#t+1] = LoadActor("middle")..{
-	OnCommand=cmd(diffusealpha,0;Center;zoomy,0;sleep,0.8;diffusealpha,1;linear,0.066;zoom,1;x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y-3);
+	OnCommand=cmd(diffusealpha,0;Center;zoomy,0;sleep,0.8;diffusealpha,0.5;linear,0.066;zoom,1;x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y-3);
 	OffCommand=cmd(linear,0.134;zoomy,0);
 };
 
