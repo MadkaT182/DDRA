@@ -1,4 +1,9 @@
+local lang = "us";
 local t = Def.ActorFrame {};
+
+if THEME:GetCurLanguage() == "ja" then
+	lang = "jp";
+end;
 
 --BGMiddle
 t[#t+1] = LoadActor("bgmid")..{
@@ -12,7 +17,7 @@ t[#t+1] = LoadActor("middle")..{
 };
 
 --Text
-t[#t+1] = LoadActor("text")..{
+t[#t+1] = LoadActor("text_"..lang)..{
 	OnCommand=cmd(diffusealpha,0;Center;zoomy,0;sleep,0.8;diffusealpha,1;linear,0.066;zoom,1;x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y);
 	OffCommand=cmd(linear,0.134;zoomy,0);
 };
