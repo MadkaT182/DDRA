@@ -1,4 +1,9 @@
+local lang = "us";
 local t = Def.ActorFrame {};
+
+if THEME:GetCurLanguage() == "ja" then
+	lang = "jp";
+end;
 
 t[#t+1] = LoadActor( THEME:GetPathB("ScreenEvaluation","decorations") );
 
@@ -14,10 +19,18 @@ t[#t+1] = Def.ActorFrame {
 	}
 };
 
-t[#t+1] = Def.ActorFrame {
-	LoadActor( "../_footer/tr" )..{
-		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-29);
-	}
-};
+if lang == "us" then
+	t[#t+1] = Def.ActorFrame {
+		LoadActor( "../_footer/tr" )..{
+			InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-27);
+		}
+	};
+else
+	t[#t+1] = Def.ActorFrame {
+		LoadActor( "../_footer/tr" )..{
+			InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-29);
+		}
+	};
+end
 
 return t;
