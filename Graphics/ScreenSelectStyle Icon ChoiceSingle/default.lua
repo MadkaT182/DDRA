@@ -8,10 +8,17 @@ local t = Def.ActorFrame{
         self:zoomy(0):sleep(0.1):linear(0.2):
         diffusealpha(1):zoomy(1)
       end;
+      self:sleep(1.5);
+      self:queuecommand("Play");
     end;
-    GainFocusCommand=cmd(stoptweening;sleep,0.1;linear,0.2;zoomy,1;diffusealpha,1);
-    LoseFocusCommand=cmd(stoptweening;linear,0.2;zoomy,0);
+    GainFocusCommand=cmd(stoptweening;sleep,0.1;linear,0.2;zoomy,1;diffusealpha,1;sleep,1;queuecommand,"Play");
+    LoseFocusCommand=cmd(stoptweening;linear,0.2;zoomy,0;diffusealpha,0);
     OffCommand=cmd(linear,0.3;zoom,0;diffusealpha,0;);
+    PlayCommand=function(self)
+      if self:GetVisible() then
+      SOUND:PlayAnnouncer( "select style comment single" )
+      end;
+    end;
   };
 }
 
