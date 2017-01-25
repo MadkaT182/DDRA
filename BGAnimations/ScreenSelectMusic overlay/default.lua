@@ -151,9 +151,9 @@ t[#t+1] = LoadFont("Bpm")..{
 			local bpmtext;
 			bpmtext = song:GetDisplayBpms();
 			if bpmtext[1] == bpmtext[2] then
-				bpmtext = bpmtext[1];
+				bpmtext = string.format("%.0f",bpmtext[1]);
 			else
-				bpmtext = string.format("%d\nx%d",bpmtext[1],bpmtext[2]);
+				bpmtext = string.format("%d\nx%d",string.format("%.0f",bpmtext[1]),string.format("%.0f",bpmtext[2]));
 			end
 			self:horizalign(right);
 			self:vertalign(top);
