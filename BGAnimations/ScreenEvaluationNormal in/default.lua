@@ -6,10 +6,10 @@ t[#t+1] = Def.ActorFrame {
 		OnCommand=cmd(Center;FullScreen;diffusecolor,Color.Black;diffusealpha,1;sleep,0.434;linear,0.033;diffusealpha,0;);
 	};
 
-	-- --Score sound
-	-- LoadActor("Score")..{
-	-- 	StartTransitioningCommand=cmd(stop;sleep,5;play);
-	-- };
+	--Score sound
+	LoadActor("Score")..{
+		StartTransitioningCommand=cmd(stop;sleep,5;play);
+	};
 };
 
 if STATSMAN:GetCurStageStats():AllFailed() then
