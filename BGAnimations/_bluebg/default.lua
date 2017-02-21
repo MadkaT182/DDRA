@@ -35,6 +35,18 @@ t[#t+1] = Def.ActorFrame{
 		InitCommand=cmd(y,SCREEN_BOTTOM-66;zoomy,-1);
 	};
 };
+
+--Lights
+t[#t+1] = Def.ActorFrame{
+	InitCommand=cmd(CenterX);
+	LoadActor(THEME:GetPathB("","_door/light"))..{
+		InitCommand=cmd(y,SCREEN_TOP+20);
+	};
+	LoadActor(THEME:GetPathB("","_door/light"))..{
+		InitCommand=cmd(y,SCREEN_BOTTOM-20;zoomy,-1);
+	};
+};
+
 --Glow
 t[#t+1] = Def.ActorFrame{
 	InitCommand=cmd(CenterX);

@@ -67,6 +67,9 @@ if not GAMESTATE:IsDemonstration() then
 		LoadActor( "../_door/lines" )..{
 			OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP-67;sleep,dt;linear,0.283;x,SCREEN_CENTER_X;y,SCREEN_TOP+67;);
 		};
+		LoadActor( "../_door/light" )..{
+			OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP-20;sleep,dt;linear,0.283;x,SCREEN_CENTER_X;y,SCREEN_TOP+20;);
+		};
 
 		--Down Side
 		--BG
@@ -78,6 +81,9 @@ if not GAMESTATE:IsDemonstration() then
 		-- };
 		LoadActor( "../_door/lines" )..{
 			OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM+67;zoomy,-1;sleep,dt;linear,0.283;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-67;);
+		};
+		LoadActor( "../_door/light" )..{
+			OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM+20;zoomy,-1;sleep,dt;linear,0.283;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-20;);
 		};
 
 	}

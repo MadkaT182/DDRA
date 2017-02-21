@@ -62,6 +62,18 @@ t[#t+1] = Def.ActorFrame{
     OnCommand=cmd(sleep,0.4;linear,0.2;addy,66;diffusealpha,0;);
 	};
 };
+--Lights
+t[#t+1] = Def.ActorFrame{
+	InitCommand=cmd(CenterX);
+	LoadActor(THEME:GetPathB("","_door/light"))..{
+		InitCommand=cmd(y,SCREEN_TOP+20);
+		OnCommand=cmd(sleep,.4;linear,.2;addy,-20;diffusealpha,0);
+	};
+	LoadActor(THEME:GetPathB("","_door/light"))..{
+		InitCommand=cmd(y,SCREEN_BOTTOM-20;zoomy,-1);
+		OnCommand=cmd(sleep,.4;linear,.2;addy,20;diffusealpha,0);
+	};
+};
 --Glow
 t[#t+1] = Def.ActorFrame{
 	InitCommand=cmd(CenterX;queuecommand,"Animate");

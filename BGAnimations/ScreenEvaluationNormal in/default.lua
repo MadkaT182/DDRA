@@ -27,6 +27,9 @@ if STATSMAN:GetCurStageStats():AllFailed() then
 		LoadActor( "../_door/lines" )..{
 			OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+67;linear,0.35;x,SCREEN_CENTER_X;y,SCREEN_TOP-67;diffusealpha,0);
 		};
+		LoadActor( "../_door/light" )..{
+			OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+20;linear,0.35;x,SCREEN_CENTER_X;y,SCREEN_TOP-20;diffusealpha,0);
+		};
 
 		--Down Side
 		--BG
@@ -39,7 +42,9 @@ if STATSMAN:GetCurStageStats():AllFailed() then
 		LoadActor( "../_door/lines" )..{
 			OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-67;zoomy,-1;linear,0.35;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM+67;diffusealpha,0);
 		};
-
+		LoadActor( "../_door/light" )..{
+			OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-20;zoomy,-1;linear,0.35;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM+20;diffusealpha,0);
+		};
 	};
 else
 	--Cleared
@@ -56,6 +61,9 @@ else
 		LoadActor( "../_door/lines" )..{
 			OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+67;linear,0.35;x,SCREEN_CENTER_X;y,SCREEN_TOP-67;diffusealpha,0);
 		};
+		LoadActor( "../_door/light" )..{
+			OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+20;linear,0.35;x,SCREEN_CENTER_X;y,SCREEN_TOP-20;diffusealpha,0);
+		};
 
 		--Down Side
 		--BG
@@ -68,7 +76,9 @@ else
 		LoadActor( "../_door/lines" )..{
 			OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-67;zoomy,-1;linear,0.35;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM+67;diffusealpha,0);
 		};
-
+		LoadActor( "../_door/light" )..{
+			OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-20;zoomy,-1;linear,0.35;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM+20;diffusealpha,0);
+		};
 	};
 end
 
