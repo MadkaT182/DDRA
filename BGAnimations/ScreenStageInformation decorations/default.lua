@@ -144,7 +144,7 @@ if GAMESTATE:IsExtraStage() or GAMESTATE:IsExtraStage2() then
 		};
 	else
 		--Extra Exclusive
-		if STitle == "New Century" or STitle == "RISING FIRE HAWK" or STitle == "Astrogazer" or STitle == "Come to Life" or STitle == "Emera" or STitle == "Start a New Day" or STitle == "Ishtar" or STitle == "out of focus" then
+		if STitle == "New Century" or STitle == "RISING FIRE HAWK" or STitle == "Astrogazer" or STitle == "Come to Life" or STitle == "Emera" or STitle == "Start a New Day" or STitle == "Ishtar" or STitle == "out of focus" or STitle == "Neutrino" then
 			t[#t+1] = Def.ActorFrame {
 				LoadActor("Exclusive")..{};
 			};
