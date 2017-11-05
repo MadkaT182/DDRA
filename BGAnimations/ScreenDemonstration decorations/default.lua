@@ -1,15 +1,10 @@
-local t = Def.ActorFrame {};
-
---ScoreBG
-t[#t+1] = LoadActor("../../Graphics/ScreenGameplay ScoreFrame")..{
-	OnCommand=cmd(y,SCREEN_BOTTOM-46;draworder,1);
-	OffCommand=cmd();
-};
-
---JacketBG
-t[#t+1] = LoadActor("cdbg")..{
-	OnCommand=cmd(x,SCREEN_RIGHT-171;y,SCREEN_CENTER_Y+24;draworder,1);
-	OffCommand=cmd();
+local t = Def.ActorFrame {
+	LoadActor(THEME:GetPathG("ScreenGameplay", "ScoreFrame"))..{
+		OnCommand=cmd(y,SCREEN_BOTTOM-38;draworder,1);
+	};
+	LoadActor("cdbg")..{
+		OnCommand=cmd(x,SCREEN_RIGHT-171;y,SCREEN_CENTER_Y+24;draworder,1);
+	};
 };
 
 --Jacket
@@ -55,17 +50,8 @@ t[#t+1] = LoadFont("_arial_black 18px") .. {
 	CurrentSongChangedMessageCommand=cmd(playcommand,"Refresh");
 	RefreshCommand=function(self)
 		local vSong = GAMESTATE:GetCurrentSong();
-		local vCourse = GAMESTATE:GetCurrentCourse();
-		local sText = ""
-		-- if vSong then
-			sText = vSong:GetDisplayFullTitle()
-		-- end
-		-- if vCourse then
-		-- 	sText = vSong:GetDisplayFullTitle()
-		-- end
-		self:settext( sText );
+		self:settext(vSong:GetDisplayFullTitle());
 		self:horizalign(center);
-		self:playcommand( "On" );
 		self:maxwidth(220);
 		self:x(SCREEN_RIGHT-171);
 		self:y(SCREEN_CENTER_Y+129);
@@ -78,17 +64,8 @@ t[#t+1] = LoadFont("_arial_blk12px") .. {
 	CurrentSongChangedMessageCommand=cmd(playcommand,"Refresh");
 	RefreshCommand=function(self)
 		local vSong = GAMESTATE:GetCurrentSong();
-		local vCourse = GAMESTATE:GetCurrentCourse();
-		local sText = ""
-		-- if vSong then
-			sText = vSong:GetDisplayArtist()
-		-- end
-		-- if vCourse then
-		-- 	sText = vSong:GetDisplayArtist()
-		-- end
-		self:settext( sText );
+		self:settext(vSong:GetDisplayArtist());
 		self:horizalign(center);
-		self:playcommand( "On" );
 		self:maxwidth(220);
 		self:x(SCREEN_RIGHT-171);
 		self:y(SCREEN_CENTER_Y+145);

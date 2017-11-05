@@ -15,4 +15,7 @@ t[#t+1] = Def.ActorFrame {
 };
 end;
 
+--Theme version
+t[#t+1] = LoadActor( THEME:GetPathB("","_version") );
+
 return t
