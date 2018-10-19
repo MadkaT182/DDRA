@@ -7,9 +7,17 @@ t[#t+1] = Def.ActorFrame {
 	LoadActor( "thanks" )..{
 		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;blend,'BlendMode_NoEffect';zwrite,true;clearzbuffer,false;sleep,0.334;linear,4.933;zoom,0.791;);
 	};
-	LoadActor( "konami" )..{
-		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-137;blend,'BlendMode_NoEffect';zwrite,true;clearzbuffer,false;);
+};
+
+if THEME:GetCurLanguage() == "ja" then
+	t[#t+1] = Def.ActorFrame {
+		LoadActor( "konami" )..{
+			InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-137;blend,'BlendMode_NoEffect';zwrite,true;clearzbuffer,false;);
+		};
 	};
+end;
+
+t[#t+1] = Def.ActorFrame {
 	Def.Quad{
 		InitCommand=cmd(Center;FullScreen;diffusecolor,color("#FFFFFF");ztest,true);
 	};

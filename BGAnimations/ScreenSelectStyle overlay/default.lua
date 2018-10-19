@@ -2,10 +2,8 @@ local t = Def.ActorFrame {};
 
 --Common Objects
 t[#t+1] = Def.ActorFrame {
-
 	--Header
 	LoadActor( "../_header" )..{};
-
 	--Title
     LoadActor("_title") .. {
 		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+19);
@@ -18,13 +16,11 @@ t[#t+1] = Def.ActorFrame {
 		OnCommand=cmd();
 		OffCommand=cmd(smooth,0.2;diffusealpha,0;);
     };
-
     LoadActor("P2Frame") .. {
         InitCommand=cmd(x,SCREEN_RIGHT-142;y,SCREEN_BOTTOM-52;);
 		OnCommand=cmd();
 		OffCommand=cmd(smooth,0.2;diffusealpha,0;);
     };
-
     --Selection Arrows
 	LoadActor("_selectarrow")..{
 		InitCommand=cmd(x,SCREEN_CENTER_X-173;y,SCREEN_BOTTOM-111;zoomx,0.5;zoomy,0.5;diffusealpha,0;draworder,1);
@@ -33,7 +29,6 @@ t[#t+1] = Def.ActorFrame {
 		MenuLeftP1MessageCommand=cmd(smooth,0.1;addx,-20;smooth,0.1;addx,20;);
 		MenuLeftP2MessageCommand=cmd(smooth,0.1;addx,-20;smooth,0.1;addx,20;);
 	};
-
 	LoadActor("_selectarrow")..{
 		InitCommand=cmd(x,SCREEN_CENTER_X+173;y,SCREEN_BOTTOM-111;zoomx,-0.5;zoomy,0.5;diffusealpha,0;draworder,1);
 		OnCommand=cmd(smooth,0.3;zoomx,-1;zoomy,1;diffusealpha,1;);
@@ -41,7 +36,6 @@ t[#t+1] = Def.ActorFrame {
 		MenuRightP1MessageCommand=cmd(smooth,0.1;addx,20;smooth,0.1;addx,-20;);
 		MenuRightP2MessageCommand=cmd(smooth,0.1;addx,20;smooth,0.1;addx,-20;);
 	};
-
 };
 
 --Join Messages

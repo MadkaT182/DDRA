@@ -136,29 +136,12 @@ t[#t+1] = Def.ActorFrame {
 };
 
 if GAMESTATE:IsExtraStage() or GAMESTATE:IsExtraStage2() then
-	local STitle = song:GetDisplayFullTitle();
-	--Extra Savior
-	if STitle == "宇宙(ソラ)への片道切符" or STitle == "Electric Dance System Music" or STitle == "TECH-NOID" or STitle == "Sora e no katamichi kippu" or STitle == "Cytokinesis" or STitle == "S!ck" or STitle == "Illegal Function Call" or STitle == "STERLING SILVER" or STitle == "STERLING SILVER (U1 overground mix)" or STitle == "Far east nightbird" or STitle == "Far east nightbird kors k Remix -DDR edit ver-" or STitle == "Angelic Jelly" or STitle == "Grand Chariot" or STitle == "Sephirot" or STitle == "StrayedCatz" or STitle == "ZEPHYRANTHES" or STitle == "Triple Counter" or STitle == "Renai kansoku" or STitle == "恋愛観測" or STitle == "Koisuru uchuu sensou!!" or STitle == "Koisuru☆uchuu sensou!!" or STitle == "恋する☆宇宙戦争っ!!" then
-		t[#t+1] = Def.ActorFrame {
-			LoadActor("Savior")..{};
-		};
-	else
-		--Extra Exclusive
-		if STitle == "New Century" or STitle == "RISING FIRE HAWK" or STitle == "Astrogazer" or STitle == "Come to Life" or STitle == "Emera" or STitle == "Start a New Day" or STitle == "Ishtar" or STitle == "out of focus" then
-			t[#t+1] = Def.ActorFrame {
-				LoadActor("Exclusive")..{};
-			};
-		else
-			--Normal stage indicator
-			t[#t+1] = Def.ActorFrame {
-				LoadActor("StageDisplay")..{};
-			};
-		end
-	end
-else
-	--Normal stage indicator
 	t[#t+1] = Def.ActorFrame {
-		LoadActor("StageDisplay")..{};
+		LoadActor(GetExtraType(song:GetDisplayFullTitle()));
+	};
+else
+	t[#t+1] = Def.ActorFrame {
+		LoadActor("StageDisplay");
 	};
 end
 

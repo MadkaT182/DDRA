@@ -13,7 +13,6 @@ if tRemap[sStage] == PREFSMAN:GetPreference("SongsPerPlay") then
 else
 	sStage = sStage;
 end;
-----------------------------------------------------------------------------
 
 local t = Def.ActorFrame {};
 
@@ -26,56 +25,34 @@ t[#t+1] = Def.ActorFrame{
 			end;
 		end;
 	};
-};
-
-t[#t+1] = Def.ActorFrame {
 	LoadActor( "_frame" )..{
 		OnCommand=cmd(x,SCREEN_CENTER_X-67;y,SCREEN_TOP+71)
-	}
-};
-
-t[#t+1] = Def.ActorFrame {
+	};
 	LoadActor( "mask" )..{
 		OnCommand=cmd(x,SCREEN_CENTER_X-36;y,SCREEN_TOP+74;blend,'BlendMode_NoEffect';zwrite,true;clearzbuffer,false;)
-	}
-};
-
-t[#t+1] = Def.ActorFrame {
+	};
 	LoadActor( "scan" )..{
-		OnCommand=cmd(x,SCREEN_CENTER_X-230;y,SCREEN_TOP+63;linear,1.5;addx,300;sleep,1;ztest,true;queuecommand,"On")
-	}
-};
-
-t[#t+1] = Def.ActorFrame {
+		OnCommand=cmd(x,SCREEN_CENTER_X-230;y,SCREEN_TOP+63;linear,1.5;addx,300;sleep,1;ztest,true;queuecommand,"On");
+		OffCommand=cmd(stoptweening);
+	};
 	LoadActor( "scan" )..{
-		OnCommand=cmd(x,SCREEN_CENTER_X-230;y,SCREEN_TOP+63;linear,1.5;addx,300;sleep,1;ztest,true;queuecommand,"On")
-	}
-};
-
-
-t[#t+1] = Def.ActorFrame {
+		OnCommand=cmd(x,SCREEN_CENTER_X-230;y,SCREEN_TOP+63;linear,1.5;addx,300;sleep,1;ztest,true;queuecommand,"On");
+		OffCommand=cmd(stoptweening);
+	};
 	LoadActor( "_info" )..{
 		OnCommand=cmd(x,SCREEN_CENTER_X-214;y,SCREEN_TOP+36)
-	}
-};
-
-t[#t+1] = Def.ActorFrame {
+	};
 	Def.Sprite{
 		Texture="_meter 2x2 (doubleres).png";
 		InitCommand=cmd(x,SCREEN_CENTER_X+14;y,SCREEN_TOP+97;effectclock,'beatnooffset';SetAllStateDelays,1);
-	}
-};
-
-t[#t+1] = Def.ActorFrame {
+		OffCommand=cmd(stopeffect);
+	};
 	LoadActor( "_bpm" )..{
 		OnCommand=cmd(x,SCREEN_CENTER_X+31;y,SCREEN_TOP+94)
-	}
-};
-
-t[#t+1] = Def.ActorFrame {
+	};
 	LoadActor( "_coverbg" )..{
 		OnCommand=cmd(x,SCREEN_CENTER_X+158;y,SCREEN_TOP+69)
-	}
+	};
 };
 
 --Song Info
@@ -172,7 +149,7 @@ t[#t+1] = Def.ActorFrame {
 	LoadActor( "cursor" )..{
 		InitCommand=cmd(x,SCREEN_CENTER_X-194;y,SCREEN_CENTER_Y);
 		OnCommand=cmd(bounce;effectmagnitude,8,0,0;effectclock,'beatnooffset');
-		OffCommand=cmd(sleep,0.2;linear,0;diffusealpha,0);
+		OffCommand=cmd(sleep,0.2;stopeffect;linear,0;diffusealpha,0);
 	}
 };
 
@@ -180,7 +157,7 @@ t[#t+1] = Def.ActorFrame {
 	LoadActor( "cursor" )..{
 		InitCommand=cmd(x,SCREEN_CENTER_X+194;y,SCREEN_CENTER_Y;zoomx,-1);
 		OnCommand=cmd(bounce;effectmagnitude,-8,0,0;effectclock,'beatnooffset');
-		OffCommand=cmd(sleep,0.2;linear,0;diffusealpha,0);
+		OffCommand=cmd(sleep,0.2;stopeffect;linear,0;diffusealpha,0);
 	}
 };
 
