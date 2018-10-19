@@ -76,6 +76,10 @@ function GetExtraType(songtit)
 		["Fuurin hanabi"] = "Savior",
 		["Seiza ga koishita shunkan wo"] = "Savior",
 		["Prey"] = "Savior",
+		["Show me your moves"] = "Savior",
+		["POSSESSION (20th Anniversary Mix)"] = "Savior",
+		["CHAOS Terror-Tech Mix"] = "Savior",
+		["MAX 360"] = "Savior",
 		--Extra Exclusive
 		["IN BETWEEN"] = "Exclusive",
 		["Love You More"] = "Exclusive",
