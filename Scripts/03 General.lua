@@ -80,6 +80,9 @@ function GetExtraType(songtit)
 		["POSSESSION (20th Anniversary Mix)"] = "Savior",
 		["CHAOS Terror-Tech Mix"] = "Savior",
 		["MAX 360"] = "Savior",
+		["OurMemories"] = "Savior",
+		["ANNIVERSARY"] = "Savior",
+		["Schrodinger no neko"] = "Savior",
 		--Extra Exclusive
 		["IN BETWEEN"] = "Exclusive",
 		["Love You More"] = "Exclusive",
